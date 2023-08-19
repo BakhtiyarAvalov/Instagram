@@ -1,6 +1,6 @@
-import Register from '../../public/server/user/register'
-import Header from '../../public/server/header/header'
-import Footer from '../../public/server/footer/footer'
+import Register from '../../src/components/user/register'
+import Header from '../../src/components/header/header'
+import Footer from '../../src/components/footer/footer'
 export default function Home() {
   return (
     <main>

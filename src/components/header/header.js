@@ -1,12 +1,12 @@
 'use client'
 
-import instagram from '../../images/icon/instagram.png'
-import avatar from '../../images/icon/avatar.png'
-import compass from '../../images/icon/compass.png'
-import heart from '../../images/icon/heart.png'
-import home from '../../images/icon/home.png'
-import massage from '../../images/icon/massage.png'
-import plus from '../../images/icon/plus.png'
+import instagram from '../../../public/images/icon/instagram.png'
+import avatar from '../../../public/images/icon/avatar.png'
+import compass from '../../../public/images/icon/compass.png'
+import heart from '../../../public/images/icon/heart.png'
+import home from '../../../public/images/icon/home.png'
+import massage from '../../../public/images/icon/massage.png'
+import plus from '../../../public/images/icon/plus.png'
 
 
 import Image from "next/image"

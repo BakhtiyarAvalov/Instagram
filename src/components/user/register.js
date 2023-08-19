@@ -3,11 +3,11 @@
 
 import { useState } from "react"
 
-import googleLogo from '../../images/icon/googleLogo.png'
-import MicrosoftLogo from '../../images/icon/MicrosoftLogo.png'
-import instagram from '../../images/icon/instagram.png'
-import facebook from '../../images/icon/facebook.png'
-import phones from '../../images/icon/phones.png'
+import googleLogo from '../../../public/images/icon/googleLogo.png'
+import MicrosoftLogo from '../../../public/images/icon/MicrosoftLogo.png'
+import instagram from '../../../public/images/icon/instagram.png'
+import facebook from '../../../public/images/icon/facebook.png'
+import phones from '../../../public/images/icon/phones.png'
 
 
 import Image from "next/image"
