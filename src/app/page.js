@@ -1,10 +1,12 @@
-import Task from '../companents/task'
-
+import Register from '../../public/server/user/register'
+import Header from '../../public/server/header/header'
+import Footer from '../../public/server/footer/footer'
 export default function Home() {
   return (
     <main>
-      Hello Decode
-      <Task/>
+      {/* <Header/> */}
+      <Register/>
+      <Footer/>
     </main>
   )
 }
