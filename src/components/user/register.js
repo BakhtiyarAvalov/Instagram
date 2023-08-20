@@ -19,7 +19,7 @@ export default function Register () {
         <section className="main-card">
             {step === 1 && <div className="card">
                 <Image src={instagram}/>
-                <p>Sing up see photos and videos ftom yor frends</p>
+                <p>Sign up to see photos and videos from your friends.</p>
                 <button className="button button-facebook">
                     <Image src={facebook}/>
                     Log in wiht Facebook
@@ -35,7 +35,7 @@ export default function Register () {
                     <input className="input" placeholder="Username"/>
                     <input className="input" placeholder="Password"/>
                     <div>
-                        <p>Peoope who use our service may have uploaded your contact information to Instagram <a src=''>Learn More</a></p>
+                        <p>People who use our service may have uploaded your contact information to Instagram. <a src=''>Learn More</a></p>
                         <p>By signing up, you agree to our
                             <a> Terms</a>,
                             <a> Privacy</a>,
