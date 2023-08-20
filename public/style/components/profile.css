@@ -1,0 +1,69 @@
+.profile{
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.profile p{
+    margin-top: 10px;
+}
+.profile img{
+    width: 15%;
+    height: 15%;
+    padding-left: 10%;
+}
+.profile-card {
+    width: 60%;
+}
+
+.profile-card p{
+    margin-right: 15px;
+}
+.profile-card-nick h3, p{
+    margin: 20px 20px;
+}
+.profile-card-line {
+    width: 100%;
+    border-top: 2px solid #f0eeee;
+}
+.profile-card-line-item {
+    margin: 0 24%;
+    width: 10%;
+    border-top: 3px solid #acaaaa;
+}
+
+.profile-card-icon{
+    margin: 20px 25%;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.profile-card-icon img{
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    margin: 0 8px;
+}
+.post {
+    width: 100%;
+    height: auto;
+}
+.post-stat{
+    min-height: 100px;
+    position: relative;
+}
+.post-stat img{
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    margin: 10px;
+}
+.post-stat a{
+    cursor: pointer;
+    padding: 10px;
+}
+#post{
+    max-width: 30%;
+    height: auto;
+    position: absolute;
+}

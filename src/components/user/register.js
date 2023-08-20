@@ -7,7 +7,6 @@ import googleLogo from '../../../public/images/icon/googleLogo.png'
 import MicrosoftLogo from '../../../public/images/icon/MicrosoftLogo.png'
 import instagram from '../../../public/images/icon/instagram.png'
 import facebook from '../../../public/images/icon/facebook.png'
-import phones from '../../../public/images/icon/phones.png'
 
 
 import Image from "next/image"
