@@ -60,7 +60,9 @@ export default function Profile() {
                 <h3> <Image src={save}/>saved</h3>
                 <h3> <Image src={ava}/>tagged</h3>
             </div>
-            <Posts posts={posts}/>
+            <div className='flex flex-jc-sb'>
+                <Posts posts={posts}/>
+            </div>
         </div>
     </main>
   )

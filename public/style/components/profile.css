@@ -56,14 +56,14 @@
     width: 14px;
     height: 14px;
     cursor: pointer;
-    margin: 10px;
 }
 .post-stat a{
     cursor: pointer;
     padding: 10px;
 }
 #post{
-    max-width: 30%;
+    max-width: 100%;
     height: auto;
-    position: absolute;
+    margin: 10px;
+    object-fit: cover;
 }

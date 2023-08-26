@@ -1,10 +1,10 @@
 
-import Login from '@/components/login/login'
 import Footer from '@/components/footer/footer'
+import Register from '@/components/register/register'
 export default function Logo() {
   return (
     <main>
-      <Login/>
+      <Register/>
       <Footer/>
     </main>
   )
