@@ -10,7 +10,12 @@ import plus from '../../../public/images/svg/plus.svg'
 
 
 import Image from "next/image"
+import Modal from '@/components/modal/modal'
+import { useState } from 'react'
+
 export default function Header () {
+    const [modalActive, setModalActive] = useState(false)
+
     return (
         <header className="header">
             <div className = "container">
@@ -24,13 +29,14 @@ export default function Header () {
                     <div className='header-icon'>
                         <Image src={home}/> 
                         <Image src={massage}/>
-                        <Image src={plus}/>
+                        <Image src={plus} onClick={() => setModalActive(true)}/>
                         <Image src={compass}/>
                         <Image src={heart}/>
                         <Image src={ava}/>   
                     </div>
                 </div>
             </div>
+            <Modal active={modalActive} setActive={setModalActive}/>
         </header>
     )
 }

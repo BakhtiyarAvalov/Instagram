@@ -1,0 +1,49 @@
+.modal{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5;
+}
+.modal_content{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    max-width: 50vw;
+    min-width: 40vw;
+    max-height: 80vh;
+    min-height: 60vh;
+    transform: scale(0.5s);
+    transition: 0.4s all;
+}
+.modal.active{
+    opacity: 1;
+    pointer-events: all;
+}
+.modal_content.active{
+    transform: scale(1);
+}
+.Create_post_content{
+    align-items: center;
+    justify-content: center;
+    margin-top: 20%;
+}
+.Create_post_content img{
+    width: 22px;
+    height: 22px;
+}
+.Create_post_content button{
+    background: #4193EF;
+}
+.Create_post_title{
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}

@@ -1,5 +1,7 @@
+'use client'
 import Header from '@/components/header/header'
 import Posts from '@/components/posts'
+
 import profile from '../../../public/images/svg/Profile.svg'
 import avatar from '../../../public/images/svg/Avatar.svg'
 import save from '../../../public/images/svg/save.svg'
@@ -62,6 +64,7 @@ const posts = [
 
 
 import Image from "next/image"
+
 
 export default function Profile() {
   return (
