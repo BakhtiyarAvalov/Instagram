@@ -3,7 +3,7 @@
 
 import googleLogo from '../../../public/images/icon/googleLogo.png'
 import MicrosoftLogo from '../../../public/images/icon/MicrosoftLogo.png'
-import instagram from '../../../public/images/icon/instagram.png'
+import instagram from '../../../public/images/svg/Logo.svg'
 import facebook from '../../../public/images/icon/facebook.png'
 import Link from 'next/link'
 

@@ -44,14 +44,19 @@
     cursor: pointer;
     margin: 0 8px;
 }
+.posts{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-height: min-content;
+
+}
 .post {
-    width: 100%;
-    height: auto;
+    width: calc(33.3% - 20px);
+    object-fit: cover;
+
 }
-.post-stat{
-    min-height: 100px;
-    position: relative;
-}
+
 .post-stat img{
     width: 14px;
     height: 14px;

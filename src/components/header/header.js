@@ -1,12 +1,12 @@
 'use client'
 
-import instagram from '../../../public/images/icon/instagram.png'
-import avatar from '../../../public/images/icon/avatar.png'
-import compass from '../../../public/images/icon/compass.png'
-import heart from '../../../public/images/icon/heart.png'
-import home from '../../../public/images/icon/home.png'
-import massage from '../../../public/images/icon/massage.png'
-import plus from '../../../public/images/icon/plus.png'
+import instagram from '../../../public/images/svg/Logo.svg'
+import ava from '../../../public/images/svg/Ava.svg'
+import compass from '../../../public/images/svg/compass.svg'
+import heart from '../../../public/images/svg/heart.svg'
+import home from '../../../public/images/svg/home.svg'
+import massage from '../../../public/images/svg/massage.svg'
+import plus from '../../../public/images/svg/plus.svg'
 
 
 import Image from "next/image"
@@ -27,7 +27,7 @@ export default function Header () {
                         <Image src={plus}/>
                         <Image src={compass}/>
                         <Image src={heart}/>
-                        <Image src={avatar}/>   
+                        <Image src={ava}/>   
                     </div>
                 </div>
             </div>

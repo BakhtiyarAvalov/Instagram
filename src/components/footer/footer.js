@@ -1,7 +1,5 @@
 'use client'
 
-import instagram from '../../../public/images/icon/instagram.png'
-
 import Image from "next/image"
 export default function Footer () {
     return (
