@@ -10,7 +10,11 @@
     justify-content:center;
     opacity: 0;
     pointer-events: none;
-    transition: 0.5;
+    transition: 0.6s;
+}
+.modal.active{
+    opacity: 1;
+    pointer-events: all;
 }
 .modal_content{
     padding: 20px;
@@ -20,13 +24,19 @@
     min-width: 40vw;
     max-height: 80vh;
     min-height: 60vh;
-    transform: scale(0.5s);
+    transform: scale(0.5);
     transition: 0.4s all;
 }
-.modal.active{
-    opacity: 1;
-    pointer-events: all;
+#close{
+    position: fixed;
+    top: 8px;
+    right: 8px;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 800;
 }
+
 .modal_content.active{
     transform: scale(1);
 }
@@ -46,4 +56,9 @@
     font-size: 15px;
     font-weight: 600;
     margin-bottom: 10px;
+}
+#upload_btn{
+    padding: 13px 20px;
+    background: #4193EF;
+    color: #FFF;
 }

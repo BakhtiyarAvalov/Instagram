@@ -36,3 +36,9 @@
     color: #fff;
     padding: 8px 35px;
 }
+#upload-text{
+    font-family: sans-serif;
+    margin-left: 10px;
+    font-size: 15px;
+    color: #aaa;
+}

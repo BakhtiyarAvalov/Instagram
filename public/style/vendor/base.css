@@ -66,3 +66,9 @@
 .mtb4{
     margin: 20px 0;
 }
+.position-a{
+    position: absolute;
+}
+.position-r{
+    position: relative;
+}

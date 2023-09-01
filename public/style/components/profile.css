@@ -3,17 +3,22 @@
     justify-content: space-between;
     align-items: flex-start;
 }
+.profile-position{
+    padding-left: 8%;
+}
+
 .profile p{
     margin-top: 10px;
 }
 .profile img{
-    width: 15%;
+    width: 10%;
     height: 15%;
     padding-left: 10%;
 }
 .profile-card {
     width: 60%;
 }
+
 
 .profile-card p{
     margin-right: 15px;
@@ -52,7 +57,7 @@
 
 }
 .post {
-    width: calc(33.3% - 20px);
+    max-width: calc(33.3% - 20px);
     object-fit: cover;
 
 }

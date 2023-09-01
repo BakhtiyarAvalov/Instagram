@@ -1,0 +1,38 @@
+.menu{
+    display: flex;
+    align-items: start;
+    min-height: max-content;
+    max-height: 100vh;
+    margin-right: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.menu-position{
+    margin: 40px 20px;
+    position: fixed;
+}
+.menu_items {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin: 20px 0;
+}
+.menu_items a{
+    display: flex;
+    align-items: start;
+    text-decoration: none;
+    outline: none;
+    color: #000;
+    margin: 12px 0;
+    cursor: pointer;
+}
+.menu_items img{
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+    cursor: pointer;
+}
+.menu_line {
+    height: 100vh;
+    border-left: 2px solid #f0eeee;
+}

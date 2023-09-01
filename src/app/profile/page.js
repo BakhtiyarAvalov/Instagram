@@ -65,12 +65,11 @@ const posts = [
 
 import Image from "next/image"
 
-
 export default function Profile() {
+
   return (
-    <main>
-        <Header/>
-        <div className='flex container   flex-cl'>
+    <main className='profile-position ml'>
+        <div className='flex container flex-cl'>
             <div className='flex m8 profile flex-jc-sb' >
                 <Image  src={profile}/>
                 <div className='flex flex-cl profile-card'>
