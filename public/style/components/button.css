@@ -42,3 +42,8 @@
     font-size: 15px;
     color: #aaa;
 }
+.ShareStories-button{
+    width: 50%;
+    margin-top: 100px;
+    padding: 12px 30px;
+}
