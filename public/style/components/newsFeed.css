@@ -1,0 +1,132 @@
+.newsFeed{
+    display: flex;
+    width: 100%;
+}
+.news_Feed_left_item{
+    width: calc(68% - 20px);
+    border: 1px solid#eee;
+    border-top: none; 
+}
+.news_Feed_left_item p{
+    margin: 10px;
+}
+.newsFeed_story{
+    display: flex;
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid#eee;
+}
+.newsFeed_story p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.newsFeed_story>p img{
+    width: 55px;
+    height: 55px;
+    margin-bottom: 10px;
+}
+#arrow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    top: 40px;
+    right: 15px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+#arrow:hover{
+    background-color: #eee;
+}
+.newsFeed_post{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+.newsFeed_post> p img{
+    width: 25px;
+    height: 25px;
+    margin-right: 20px;
+}
+.newsFeed_post p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.newsFeed_post p:last-child{
+    font-size: 20px;
+    font-weight: 900;
+}
+#img_post{
+    width: 100%;
+    height: auto;
+}
+.newsFeed_post_icon{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.newsFeed_post_icon>p img{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.fieldset{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid#eee;
+}
+.textarea{
+    width: 80%;
+    border: none;
+    opacity: .6;
+    text-align: start;
+    color: black;
+    padding: 7px;
+}
+.button_none_bordered{
+    border: none;
+    color: #0095F6;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.news_Feed_right_item{
+    width: calc(25%-20px);
+    margin: 20px;
+}
+.news_Feed_right_item p{
+    margin: 10px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.news_Feed_right_item_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #767373;
+}
+.news_Feed_Recommendations{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.news_Feed_Recommendations img{
+    width: 35px;
+    height: 35px;
+}

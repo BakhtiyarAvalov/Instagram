@@ -1,6 +1,7 @@
 'use client'
 import Header from '@/components/header/header'
 import Posts from '@/components/posts'
+import FollowersModal from '@/components/followersModal/followersModal'
 
 import profile from '../../../public/images/svg/Profile.svg'
 import avatar from '../../../public/images/svg/Avatar.svg'
@@ -62,10 +63,13 @@ const posts = [
     }
 ]
 
-
+import { useState } from 'react'
 import Image from "next/image"
 
 export default function Profile() {
+
+    
+    const [followersmodalActive, setFollowersModalActive] = useState(false)
 
   return (
     <main className='profile-position ml'>
@@ -80,7 +84,7 @@ export default function Profile() {
                     </div>
                     <div className='flex'>
                         <p>1.285 posts</p>
-                        <p>4M followers</p>
+                        <p onClick={() => setFollowersModalActive(true)}>4M followers</p>
                         <p>1.250 following</p>
                     </div>
                     <p>Terry lucas</p>
@@ -98,6 +102,7 @@ export default function Profile() {
                 <Posts posts={posts}/>
             </div>
         </div>
+        {followersmodalActive && <FollowersModal setFollowersModalActive={setFollowersModalActive}/>}
     </main>
   )
 }

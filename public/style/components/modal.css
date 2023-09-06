@@ -54,8 +54,8 @@
     background: #4193EF;
 }
 .Create_post_title{
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 17px;
+    font-weight: 700;
     margin-bottom: 10px;
 }
 #upload_btn{
@@ -74,4 +74,23 @@
 }
 .shear-item-right{
     max-width: 30%;
+}
+
+.Followers_modal_content{
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    /* max-width: 50vw; */
+    width: 100%;
+    min-width: 50%;
+    /* max-height: 80vh; */
+    min-height: 70%;
+    transform: scale(0.5);
+    transition: 0.4s all;
+    
+}
+
+.followers_modal{
+    font-size: 19px;
+    font-weight: 700;
 }
