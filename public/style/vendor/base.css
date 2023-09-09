@@ -15,6 +15,9 @@
 .flex-ai-c{
     align-items: center;
 }
+.flex-ai-s{
+    align-items: flex-start;
+}
 .p0{
     padding: 0px;
 }

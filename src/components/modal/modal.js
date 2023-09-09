@@ -1,15 +1,12 @@
 'use client'
 import CreatePost from "../createPost/createPost"
-import ShareStories from "../shareStories/shareStories"
-import Shear from "../shear/shear"
 
-export default function Modal({active, setActive}) {
+export default function Modal({active, setActive, setCreatePostShear}) {
     return (
         <div className= "modal active" onClick={() => setActive(false)}>
             <p id="close">X</p>
             <div className="modal_content active" onClick={e => e.stopPropagation()}>
-                <CreatePost/>
-                {/* <Shear/> */}
+                <CreatePost setCreatePostShear={setCreatePostShear}/>
             </div>
         </div>
     )

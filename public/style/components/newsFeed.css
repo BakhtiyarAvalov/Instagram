@@ -21,6 +21,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
 }
 .newsFeed_story>p img{
     width: 55px;
@@ -40,6 +41,7 @@
     height: 30px;
     border-radius: 50%;
 }
+
 #arrow:hover{
     background-color: #eee;
 }

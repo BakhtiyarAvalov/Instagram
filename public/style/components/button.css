@@ -35,15 +35,34 @@
     background-color: #0095F6;
     color: #fff;
     padding: 8px 35px;
+    cursor: pointer;
 }
 #upload-text{
     font-family: sans-serif;
     margin-left: 10px;
     font-size: 15px;
     color: #aaa;
+    cursor: pointer;
 }
 .ShareStories-button{
     width: 50%;
     margin-top: 100px;
     padding: 12px 30px;
+    cursor: pointer;
+}
+.button-no-border{
+    padding: 8px;
+    border: none;
+    color: #0095F6;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.button-border{
+    padding: 8px;
+    border: none;
+    background-color: #eee;
+    color: #000;
+    border-radius: 4px;
+    cursor: pointer;
 }

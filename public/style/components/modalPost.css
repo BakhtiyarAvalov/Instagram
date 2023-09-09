@@ -1,0 +1,69 @@
+.ModalPost{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    position: fixed;
+}
+.arrow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    top: 50%;
+}
+#leftArrowPost{
+    left: 20px;
+    cursor: pointer;
+}
+#rightArrowPost{
+    right: 20px;
+    cursor: pointer;
+}
+.arrow:hover{
+    background-color: #eee;
+}
+.ModalPost_content{
+    display: flex;
+    width: 700px;
+    height: 100%;
+    position: fixed;
+    top: 40px;
+    left: 20%;
+}
+.Modal_post_left_item{
+    width: 60%;
+    height: auto;
+}
+.Modal_post_left_item img{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    object-fit: cover;
+}
+.Modal_post_right_item{
+    width: 40%;
+    height: auto;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+}
+.newsFeed_post{
+    border-bottom: 1px solid#eee;
+}
+.newsFeed_post img{
+    width: 25px;
+    height: 25px;
+}
+.modalPost-footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

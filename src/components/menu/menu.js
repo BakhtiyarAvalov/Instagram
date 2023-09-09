@@ -16,10 +16,16 @@ import Link from 'next/link'
 
 import Modal from '@/components/modal/modal'
 import { useState } from 'react'
+import Shear from '../shear/shear'
 
 export default function Menu() {
 
     const [modalActive, setModalActive] = useState(false)
+    const [createPostShear, setCreatePostShear] = useState(false)
+    const setCreatePostShearActive = ()=>{
+      setModalActive(false)
+      setCreatePostShear(true)
+    }
 
   return (
     <main className='flex menu-position'>
@@ -38,8 +44,8 @@ export default function Menu() {
             <p className='menu_items'><Image src={menu}/> More</p>
         </div>
         <div className='menu_line'></div>
-        {modalActive && <Modal setActive={setModalActive}/>}
-
+        {modalActive && <Modal setActive={setModalActive} setCreatePostShear={setCreatePostShearActive}/>}
+        {createPostShear && <Shear close={setCreatePostShear}/>}
     </main>
   )
 }

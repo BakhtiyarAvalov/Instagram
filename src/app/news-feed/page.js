@@ -3,7 +3,8 @@ import like from "../../../public/images/svg/like.svg"
 import comment from "../../../public/images/svg/comment.svg"
 import emoji from "../../../public/images/svg/emoji.svg"
 import checkbox from "../../../public/images/svg/checkbox.svg"
-import arrow from "../../../public/images/svg/arrow.svg"
+import rightArrow from "../../../public/images/svg/rightArrow.svg"
+import leftArrow from "../../../public/images/svg/leftArrow.svg"
 import ava from "../../../public/images/svg/Ava.svg"
 import post from "../../../public/images/post2.png"
 
@@ -18,11 +19,11 @@ export default function NewsFid() {
         <div className=" container newsFeed">
             <div className="news_Feed_left_item">
                 <div className="newsFeed_story">
-                    <p >
+                    {/* <p >
                         <Image src={ava}/>
                         Name
-                    </p>
-                    <span id="arrow"><Image src={arrow}/></span>
+                    </p> */}
+                    {/* <span id="arrow"><Image src={rightArrow}/></span> */}
                 </div>
                 <div className="newsFeed_post">
                     <p className="">

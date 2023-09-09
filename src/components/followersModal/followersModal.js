@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export default function FollowersModal({followersmodalActive, setFollowersModalActive}) {
     return (
-        <div className= "modal active" onClick={() => setFollowersModalActive(true)}>
+        <div className= "modal active" onClick={() => setFollowersModalActive(false)}>
             <p id="close">X</p>
             <div className="Followers_modal_content active" onClick={e => e.stopPropagation()}>
                 <div className="flex flex-ai-c flex-cl Create_post_title">Followers</div>
