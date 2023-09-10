@@ -20,27 +20,27 @@ const posts = [
         show: 24,
         comments: 55,
         like: 190,
-        image: <Image alt=''  src={post5}/>
+        image: post5
     },
     {
         show: 244,
         comments: 48,
         like: 86,
-        image: <Image alt='' src={post3}/>
+        image: post3
 
     },
     {
         show: 800,
         comments: 35,
         like: 150,
-        image: <Image alt='' src={post4}/>
+        image: post4
 
     },   
     {
         show: 39,
         comments: 94,
         like: 290,
-        image: <Image alt='' src={post1}/>
+        image: post1
 
     }
     ,   
@@ -48,14 +48,13 @@ const posts = [
         show: 3,
         comments: 4,
         like: 20,
-        image: <Image alt=''  src={post2}/>
-
+        image: post2
     },   
     {
         show: 39,
         comments: 9,
         like: 20,
-        image: <Image alt=''  src={post}/>
+        image: post
 
     }
 ]

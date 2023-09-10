@@ -63,18 +63,31 @@
     background: #4193EF;
     color: #FFF;
 }
+.image> img{
+    max-width: 600px;
+    min-height: 300px;
+    height: auto;
+    object-fit: cover;
+}
 
 
-.Create_post img{
+.Create_post> img{
     width: 20px;
     height: 20px;
 }
 .shear-item-left{
-    max-width: 70%;
+    max-width: calc(70% - 10px);
+    margin-right: 20px;
 }
 .shear-item-right{
-    max-width: 30%;
-
+    max-width: calc(30% - 10px);
+}
+.shear-item-right textarea{
+    width: 100%;
+    border: none;
+}
+.Create_post_title{
+    border-bottom: 1px solid#eee;
 }
 
 .Followers_modal_content{

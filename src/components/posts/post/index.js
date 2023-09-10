@@ -7,8 +7,7 @@ import Image from "next/image"
 
 export default function Post({item, onClick}){
     return <div className='post'>
-        <div onClick={()=>onClick(item)} >{item.image}</div>
-        {/* <div onClick={()=>onClick(item)} >{item.image.src}</div> */}
+        <div onClick={()=>onClick(item)} ><Image src={item.image}/></div>
         <div className='post-stat'> 
             <a> {item.show} <Image src={eye} alt=''/></a>
             <a> {item.comments} <Image src={massage} alt=''/></a>

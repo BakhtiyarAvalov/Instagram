@@ -30,8 +30,8 @@
 }
 .ModalPost_content{
     display: flex;
-    width: 700px;
-    height: 100%;
+    width: 850px;
+    height: 100vh;
     position: fixed;
     top: 40px;
     left: 20%;
@@ -66,4 +66,5 @@
     position: absolute;
     bottom: 0;
     right: 0;
+    width: 100%;
 }

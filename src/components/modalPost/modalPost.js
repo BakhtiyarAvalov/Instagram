@@ -15,11 +15,11 @@ export default function ModalPost({setModalPostActive, currentPost}) {
         <div>
             <div className= "modal active ModalPost" onClick={() => setModalPostActive(false)}>
                 <p id="close">X</p>
-                <Image className="arrow" id="leftArrowPost" src={leftArrow}/>
+                <Image onClick={e => e.stopPropagation()} className="arrow" id="leftArrowPost" src={leftArrow}/>
             </div>
             <div className="ModalPost_content active">
                 <div  className="Modal_post_left_item">
-                     <Image src={currentPost}/>
+                     <Image src={currentPost.image}/>
                 </div>
                 <div className="Modal_post_right_item">
                     <div className="newsFeed_post mtb4">
@@ -64,7 +64,7 @@ export default function ModalPost({setModalPostActive, currentPost}) {
                     </div>
                 </div>
             </div>
-            <Image className="arrow" id="rightArrowPost" src={rightArrow}/>
+            <Image onClick={e => e.stopPropagation()} className="arrow" id="rightArrowPost" src={rightArrow}/>
         </div>  
     )
 }
