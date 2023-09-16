@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     z-index: 2;
     cursor: pointer;
     width: 30px;
@@ -30,11 +30,14 @@
 }
 .ModalPost_content{
     display: flex;
-    width: 850px;
-    height: 100vh;
+    max-width: 850px;
+    min-width: 700px;
+    min-height: 90vh;
+    max-height: 80vh;
     position: fixed;
     top: 40px;
-    left: 20%;
+    left: 25%;
+    z-index: 8;
 }
 .Modal_post_left_item{
     width: 60%;

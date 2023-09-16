@@ -36,7 +36,7 @@ export default function Header () {
                     </div>
                 </div>
             </div>
-            {modalActive && <Modal setActive={setModalActive}/>}
+            {modalActive && <Modal/>}
         </header>
     )
 }

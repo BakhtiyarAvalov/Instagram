@@ -4,8 +4,7 @@ import leftArrow from "../../../public/images/svg/leftArrow.svg"
 
 import Image from "next/image"
 
-
-export default function Shear({close, fileData, text, maxLength, handleTextChange, back}) {
+export default function Shear({ close, fileData, text, handleTextChange, back}) {
 
     return (
         <div className= "modal active" onClick={() => close(false)}>
@@ -27,7 +26,7 @@ export default function Shear({close, fileData, text, maxLength, handleTextChang
                             <textarea rows="7" placeholder="Write a caption" cols="20" value={text} onChange={handleTextChange}/>          
                             <div className=" Create_post flex flex-ai-c flex-jc-sb width1">
                                 <Image src={emoji}/>
-                                <p>{maxLength-text.length}/{text.length} {maxLength}</p>
+                                <p>{text.length} / 2200 </p>
                             </div>
                             <div className="profile-card-line"></div>
                         </div>

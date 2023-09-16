@@ -1,16 +1,10 @@
-'use client'
-import { useState } from "react"
-
-import Image from "next/image"
-
-export default function CreatePost ({setCreatePostShear, fileData, handleFileChange, selectedFile}) {
+export default function CreatePost ({handleFileChange, selectedFile}) {
     
   
     return (
     <div className="Create_post">
         <div id="Create_post_button"  className="flex flex-ai-c flex-cl Create_post_title">
             Create new post
-            <button id="Create_post_button" className="button-no-border" onClick={setCreatePostShear}>Сontinue</button>   
         </div>
         <div  className="flex flex-cl Create_post_content">
             <p>Drag photos and videos hear</p>
@@ -23,3 +17,4 @@ export default function CreatePost ({setCreatePostShear, fileData, handleFileCha
     </div>
     )
 }
+

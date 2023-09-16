@@ -57,6 +57,13 @@
     background-color: #fff;
     cursor: pointer;
 }
+.button-delete{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 4px;
+}
 
 .button-border{
     padding: 8px;
@@ -65,4 +72,14 @@
     color: #000;
     border-radius: 4px;
     cursor: pointer;
+}
+.Remove{
+    background-color: #1877f2;
+    cursor: pointer;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: none;
+    padding: 0px 30px;
 }

@@ -1,10 +1,12 @@
 'use client'
 import Posts from '@/components/posts'
+import NewsFid from '../news-feed/page'
 import ModalPost from '@/components/modalPost/modalPost'
 import FollowersModal from '@/components/followersModal/followersModal'
+import ShareStories from '@/components/shareStories/shareStories'
 import profile from '../../../public/images/svg/Profile.svg'
 import avatar from '../../../public/images/svg/Avatar.svg'
-import save from '../../../public/images/svg/save.svg'
+import saved from '../../../public/images/svg/save.svg'
 import top from '../../../public/images/svg/top.svg'
 import player from '../../../public/images/svg/player.svg'
 import post from '../../../public/images/post.png'
@@ -18,45 +20,48 @@ import post5 from '../../../public/images/post5.png'
 const posts = [
     {
         show: 24,
-        comments: 55,
+        Allcomments: 55,
         like: 190,
-        image: post5
+        image: post5,
+        name: "user1",
     },
     {
         show: 244,
-        comments: 48,
+        Allcomments: 48,
         like: 86,
-        image: post3
-
+        image: post3,
+        name: "user2"
     },
     {
         show: 800,
-        comments: 35,
+        Allcomments: 35,
         like: 150,
-        image: post4
-
+        image: post4,
+        name: "user3"
     },   
     {
         show: 39,
-        comments: 94,
+        Allcomments: 94,
         like: 290,
-        image: post1
-
+        image: post1,
+        name: "user4"
     }
     ,   
     {
         show: 3,
-        comments: 4,
+        Allcomments: 4,
         like: 20,
-        image: post2
+        image: post2,
+        name:  "user5"
     },   
     {
         show: 39,
-        comments: 9,
+        Allcomments: 9,
         like: 20,
-        image: post
-
+        image: post,
+        name: "user6"
     }
+    
 ]
 
 import { useState } from 'react'
@@ -64,21 +69,70 @@ import Image from "next/image"
 
 export default function Profile() {
     
+    // const {posts, setPosts} = useState(posts)
+
     const [modaPostlActive, setModalPostActive] = useState(false)
+    const [addStories, setAddStories] = useState(false)
     const [followersmodalActive, setFollowersModalActive] = useState(false)
     const [currentPost, setcurrentPost]=useState({})
+    const [comments, setComments] = useState(""); 
+    const [allComments, setAllComments] = useState([])
+    
+    // const [selectedPostIndex, setSelectedPostIndex] = useState(0);
 
-    const openCurrentPost = (post) => {
+    const openCurrentPost = (post, index) => {
         console.log(post.image)
         setModalPostActive(true) 
-        setcurrentPost(post)  
+        setcurrentPost(post) 
+        // setSelectedPostIndex(index) 
     }
+
+    
+    const addComment = (item) =>{
+        setAllComments([...allComments, item])
+        setComments("")
+    }
+
+    const onChangeComment = (e)=>{
+        setComments(e.target.value)
+    }
+    
+    const save = ()=>{
+        if(comments.trim()===""){
+            alert("Напишите комментарий")
+            return;
+        }
+        addComment(comments)
+    }
+   
+   
+   
+    const removeComment = (index) =>{
+      const updatedComments = [...allComments]
+      updatedComments.splice(index, 1)
+      setAllComments(updatedComments)
+    }
+
+    // const goToPreviousPost = () => {
+    //     const nextItem = (currentPost.index + 1)
+    //     }
+     
+    // const goToNextPost = () => {
+    //     console.log("post");
+
+       
+    //         setSelectedPostIndex(selectedPostIndex + 1);
+        
+    // };
+
+
+
 
     return (
     <main className='profile-position ml'>
         <div className='flex container flex-cl'>
             <div className='flex m8 profile flex-jc-sb' >
-                <Image alt='/' src={profile}/>
+                <Image alt='/' src={profile} onClick={()=>setAddStories(true)}/>
                 <div className='flex flex-cl profile-card'>
                     <div className='flex flex-ai-c profile-card-nick'>
                         <h3>terrylucas</h3>
@@ -98,7 +152,7 @@ export default function Profile() {
             <div className='profile-card-icon flex flex-ai-c flex-jc-sb'>
                 <h3> <Image alt='/' src={top}/>Posts</h3>
                 <h3> <Image alt='/' src={player}/>reels</h3>
-                <h3> <Image alt='/' src={save}/>saved</h3>
+                <h3> <Image alt='/' src={saved}/>saved</h3>
                 <h3> <Image alt='/' src={avatar}/>tagged</h3>
             </div>
             <div className='flex flex-jc-sb'>
@@ -106,7 +160,8 @@ export default function Profile() {
             </div>
         </div>
         {followersmodalActive && <FollowersModal setFollowersModalActive={setFollowersModalActive}/>}
-        {modaPostlActive && <ModalPost  currentPost={currentPost} setModalPostActive={setModalPostActive}/>}
+        {modaPostlActive &&  <ModalPost removeComment={removeComment} comments={comments} save={save} allComments={allComments} onChangeComment={onChangeComment} currentPost={currentPost} setModalPostActive={setModalPostActive}/>}
+        {addStories && <ShareStories setAddStories={setAddStories}/>}
     </main>
   )
 }

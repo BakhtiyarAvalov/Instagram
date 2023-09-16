@@ -22,6 +22,7 @@ export default function Menu() {
 
     const [modalActive, setModalActive] = useState(false)
     const [createPostShear, setCreatePostShear] = useState(false)
+    
     const setCreatePostShearActive = ()=>{
       setModalActive(false)
       setCreatePostShear(true)
@@ -29,6 +30,7 @@ export default function Menu() {
 
     const [selectedFile, setSelectedFile] = useState(null);
     const [fileData, setFileData] = useState(null);
+    
     const handleFileChange = (event) => {
       const file = event.target.files[0];
       setSelectedFile(file); 
@@ -39,27 +41,26 @@ export default function Menu() {
           setFileData(e.target.result);
         };
         reader.readAsDataURL(file);
+        setCreatePostShearActive()
       }
     }
 
 
-      const [text, setText] = useState('');
-      const [minLength, setMinLength] = useState(0);
-      const [maxLength, setMaxLength] = useState(200); 
-
-      const handleTextChange = (e) => {
-        const newText = e.target.value;
-        if (newText.length >= minLength && newText.length <= maxLength) {
-          setText(newText);
-        }
+    const [text, setText] = useState('');
+    const handleTextChange = (e) => {
+    
+      const newText = e.target.value;
+      if (newText.length < 2200) {
+        setText(newText);
       }
+    }
 
       const back =() =>{
         setCreatePostShear(false)
         setModalActive(true)
       }
 
-  return (
+    return (
     <main className='flex menu-position'>
         <div className='flex flex-cl container menu'>
             <Image className='header-logo' src={instagram}/>
@@ -76,8 +77,8 @@ export default function Menu() {
             <p className='menu_items'><Image src={menu}/> More</p>
         </div>
         <div className='menu_line'></div>
-        {modalActive && <Modal setActive={setModalActive} setCreatePostShear={setCreatePostShearActive} fileData={fileData} handleFileChange = {handleFileChange} selectedFile={selectedFile}/>}
-        {createPostShear && <Shear back={back} handleTextChange={handleTextChange} maxLength={maxLength} close={setCreatePostShear} fileData={fileData} text={text}/>}
+        {modalActive && <Modal setActive={setModalActive}  fileData={fileData} handleFileChange = {handleFileChange} selectedFile={selectedFile}/>}
+        {createPostShear && <Shear  back={back} handleTextChange={handleTextChange}  close={setCreatePostShear} fileData={fileData} text={text}/>}
     </main>
   )
 }

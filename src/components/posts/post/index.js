@@ -10,7 +10,7 @@ export default function Post({item, onClick}){
         <div onClick={()=>onClick(item)} ><Image src={item.image}/></div>
         <div className='post-stat'> 
             <a> {item.show} <Image src={eye} alt=''/></a>
-            <a> {item.comments} <Image src={massage} alt=''/></a>
+            <a> {item.Allcomments} <Image src={massage} alt=''/></a>
             <a> {item.like} <Image src={heart} alt=''/></a>
         </div>
     </div>

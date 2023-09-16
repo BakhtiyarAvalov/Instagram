@@ -1,0 +1,23 @@
+.Followers_modal_content p{
+    font-size: 28px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+/* .followersModal_item label, a{
+    font-size: 30px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+} */
+.followers_modal{
+    display: flex;
+    align-items: center;
+}
+.followers_modal p{
+    margin-top: 5px;
+}
+.followers_modal img{
+    width: 80px;
+    height: 80px;
+}

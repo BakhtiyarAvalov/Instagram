@@ -11,6 +11,7 @@
     opacity: 0;
     pointer-events: none;
     transition: 0.6s;
+    z-index: 4;
 }
 .modal.active{
     opacity: 1;
@@ -20,10 +21,10 @@
     padding: 20px;
     border-radius: 10px;
     background-color: white;
-    /* max-width: 50vw; */
-    min-width: 50vw;
-    /* max-height: 80vh; */
-    min-height: 70vh;
+    max-width: 50vw;
+    min-width: 40vw;
+    max-height: 80vh;
+    min-height: 50vh;
     transform: scale(0.5);
     transition: 0.4s all;
 }
@@ -63,9 +64,13 @@
     background: #4193EF;
     color: #FFF;
 }
+.image{
+    display: inline-block;
+}
 .image> img{
-    max-width: 600px;
-    min-height: 300px;
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
     height: auto;
     object-fit: cover;
 }
@@ -107,4 +112,19 @@
 .followers_modal{
     font-size: 19px;
     font-weight: 700;
+}
+.ShareStories_content{
+    position: fixed;
+    top: 40px;
+    margin-left: 15% ;
+    width: 700px;
+    z-index: 8;
+    background-color: #FFF;
+}
+.Create_post_title {
+    margin: 20px auto;
+    padding-bottom: 20px;
+}
+.Create_post_content{
+    padding-bottom: 30px;
 }
