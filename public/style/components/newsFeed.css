@@ -1,6 +1,7 @@
 .newsFeed{
     display: flex;
     width: 100%;
+    position: absolute;
 }
 .news_Feed_left_item{
     width: calc(68% - 20px);

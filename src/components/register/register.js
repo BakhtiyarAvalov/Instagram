@@ -16,7 +16,7 @@ export default function Register () {
     return (
         <section className="main-card">
             <div className="card">
-                <Image src={instagram}/>
+                <Image alt="" src={instagram}/>
                 <from className="form">
                     <input className="input" placeholder="Mobile Number or E-mail"/>
                     <input className="input" placeholder="Password"/>
@@ -28,7 +28,7 @@ export default function Register () {
                     <div className="line"></div>
                 </div>
                 <button className="button button-facebook-login">
-                    <Image src={facebook}/>
+                    <Image alt="" src={facebook}/>
                     Log in wiht Facebook
                 </button>
                 <a>Forgot password?</a>
@@ -39,8 +39,8 @@ export default function Register () {
             <div className="installation">
                 Get the app.
                 <div className="installation-link">
-                    <Image src={googleLogo}/>
-                    <Image src={MicrosoftLogo}/>
+                    <Image alt="" src={googleLogo}/>
+                    <Image alt="" src={MicrosoftLogo}/>
                 </div>
             </div>
         </section>

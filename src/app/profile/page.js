@@ -1,6 +1,5 @@
 'use client'
 import Posts from '@/components/posts'
-import NewsFid from '../news-feed/page'
 import ModalPost from '@/components/modalPost/modalPost'
 import FollowersModal from '@/components/followersModal/followersModal'
 import ShareStories from '@/components/shareStories/shareStories'
@@ -132,28 +131,28 @@ export default function Profile() {
     <main className='profile-position ml'>
         <div className='flex container flex-cl'>
             <div className='flex m8 profile flex-jc-sb' >
-                <Image alt='/' src={profile} onClick={()=>setAddStories(true)}/>
+                <Image alt='' src={profile} onClick={()=>setAddStories(true)}/>
                 <div className='flex flex-cl profile-card'>
                     <div className='flex flex-ai-c profile-card-nick'>
                         <h3>terrylucas</h3>
                         <button className='button profile-card-buttom'>Follow</button>
                         <p>...</p>
                     </div>
-                    <div className='flex'>
-                        <p>1.285 posts</p>
+                    <div className='flex followers'>
+                        <p onClick={() => setFollowersModalActive(true)}>1.285 posts</p>
                         <p onClick={() => setFollowersModalActive(true)}>4M followers</p>
-                        <p>1.250 following</p>
+                        <p onClick={() => setFollowersModalActive(true)}>1.250 following</p>
                     </div>
                     <p>Terry lucas</p>
                 </div>
             </div>
             <div className='profile-card-line'></div>
             <div className='profile-card-line-item'></div>
-            <div className='profile-card-icon flex flex-ai-c flex-jc-sb'>
-                <h3> <Image alt='/' src={top}/>Posts</h3>
-                <h3> <Image alt='/' src={player}/>reels</h3>
-                <h3> <Image alt='/' src={saved}/>saved</h3>
-                <h3> <Image alt='/' src={avatar}/>tagged</h3>
+            <div className='profile-card-icon flex flex-ai-c flex-jc-sb followers'>
+                <h3> <Image alt='' src={top}/>Posts</h3>
+                <h3> <Image alt='' src={player}/>reels</h3>
+                <h3> <Image alt='' src={saved}/>saved</h3>
+                <h3> <Image alt='' src={avatar}/>tagged</h3>
             </div>
             <div className='flex flex-jc-sb'>
                 <Posts posts={posts} onClick={openCurrentPost}/>

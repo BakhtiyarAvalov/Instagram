@@ -2,13 +2,13 @@
 import { useState, useEffect, useRef} from "react"
 
 import Header from "@/components/header/header"
+import Stories from "@/components/stories/stories"
 import like from "../../../public/images/svg/like.svg"
 import comment from "../../../public/images/svg/comment.svg"
 import emoji from "../../../public/images/svg/emoji.svg"
 import checkbox from "../../../public/images/svg/checkbox.svg"
 import rightArrow from "../../../public/images/svg/rightArrow.svg"
 import leftArrow from "../../../public/images/svg/leftArrow.svg"
-import ava from "../../../public/images/svg/Ava.svg"
 import Image from "next/image"
 
 import post from '../../../public/images/post.png'
@@ -65,13 +65,39 @@ const posts = [
     
 ]
 
-    // комментария к постам не связаны с индексом поста
-    // при клике на кнопку more не отображается полностью комментария
 
 export default function NewsFid() {
     const [comments, setComments] = useState(""); 
     const [allComments, setAllComments] = useState([])
     const [expanded, setExpanded] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isTimer, setIsTimer] = useState()
+
+    const openModal = (image) => {
+        setSelectedImage(image);
+        setIsModalOpen(true);
+        
+        if(isTimer){
+        clearTimeout(isTimer)
+        setIsTimer(null)
+        }
+
+        let timeoutID = setTimeout(() => {
+        console.log('work')
+        closeModal();
+        }, 5000);
+
+        setIsTimer(timeoutID)
+        // console.log("work");
+    }
+
+    const closeModal = () => {
+        setSelectedImage(null);
+        setIsModalOpen(false);
+        clearTimeout(isTimer)
+        setIsTimer(null)
+    }
     const containerRef = useRef(null)
 
     useEffect(() => {
@@ -114,22 +140,22 @@ export default function NewsFid() {
 
 
   return (
-    <main className="">
+    <main  className="">
         <Header/>
         <div className=" container newsFeed">
             <div className="news_Feed_left_item">
                 <div className="newsFeed_story">
-                    <span className="newsFeed_story_left_item" id="arrow"><Image src={leftArrow}/></span>
+                    <span className="newsFeed_story_left_item" id="arrow"><Image alt="" src={leftArrow}/></span>
                     {posts.map((post, index) => (
-                        <p >
-                            <Image  src={post.image} alt={`Post ${index}`}/> 
+                        <p style={{cursor:"pointer"}} key={index} className="newsFeed_stories_play">
+                            <Image onClick={openModal} src={post.image} alt={`Post ${index}`}/> 
                             {post.name}
                         </p>
                     ))}
-                    <span className="newsFeed_story_right_item" id="arrow"><Image src={rightArrow}/></span>
+                    <span className="newsFeed_story_right_item" id="arrow"><Image alt="" src={rightArrow}/></span>
                 </div>
                 {posts.map((post, index) => (
-                    <div>
+                    <div key={index}>
                         <div className="newsFeed_post">
                             <div className="newsFeed_post_ava">
                                 <Image  src={post.image} alt=""/> 
@@ -139,22 +165,21 @@ export default function NewsFid() {
                         </div>
                         <div className="newsFeed_post_item">
                             <Image  src={post.image} alt={`Post ${index}`}/>
-                            <Image id="img_post" src={post} alt=""/>
                             <div className="flex newsFeed_post_icon">
                                 <p>
-                                    <Image src={like}/>
-                                    <Image src={comment}/>
+                                    <Image alt="" src={like}/>
+                                    <Image alt="" src={comment}/>
                                 </p>
                                 <p>
-                                    <Image src={checkbox}/>
+                                    <Image alt="" src={checkbox}/>
                                 </p>
                             </div>
                             <p>10K Likes</p>
                             {allComments.map((comment, index) => (
-                                <div className="info-container" ref={containerRef}> 
-                                    <h2 key ={index}>User</h2> 
+                                <div key={index} className="info-container" ref={containerRef}> 
+                                    <h2>User</h2> 
                                     <p className="new-feed-comments ${expanded ? '' : 'info-content-hidden'}">
-                                        <p>{comment}</p>
+                                        <p >{comment}</p>
                                         <button onClick={() => removeComment(index)}  className="button-no-border button-delete">x</button>
                                     </p>
                                     {!expanded && (
@@ -166,14 +191,13 @@ export default function NewsFid() {
                             <p className="opacity">1 hour ago</p>
                         </div>
                         <fieldset className={"fieldset"}>
-                            <Image src={emoji}/>
+                            <Image alt="" src={emoji}/>
                             <textarea value={comments} onChange={onChangeComment} className="textarea" placeholder= "Add a comment"></textarea>
                             <button className="button_none_bordered" onClick={save}>Post</button>
                         </fieldset>
                     </div>
                 ))}
             </div>
-
 
             <div className="news_Feed_right_item">
                 <div>
@@ -195,6 +219,7 @@ export default function NewsFid() {
                 </div>
             </div>
         </div>
+        {isModalOpen && <Stories closeModal={closeModal} posts={posts}/>}
     </main>
   )
 }

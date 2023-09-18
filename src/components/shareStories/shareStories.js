@@ -53,7 +53,7 @@ export default function ShareStories({setAddStories}) {
             <div className="ShareStories_content">
                 <div className="flex flex-ai-c flex-cl Create_post_title" >Create new post</div>
                 <div  className="flex flex-cl Create_post_content">
-                    <Image src={gallery}/>
+                    <Image alt="" src={gallery}/>
                     <p>Drag and drop only photos</p>
                     <label id="upload_btn" className="button"  htmlFor="upload-file">Select from computer</label>
                     <input type="file" onChange={handleFileChange}   id="upload-file" hidden="hidden"/>

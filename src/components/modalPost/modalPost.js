@@ -8,10 +8,6 @@ import leftArrow from "../../../public/images/svg/leftArrow.svg"
 import ava from "../../../public/images/svg/Ava.svg"
 import Image from "next/image"
 
-//  не работают функции goToPreviousPost и goToNextPost (перход на между постами в модальном окне)
-//  комментария не связаны с индексом поста 
-//  длинные комментария уходят за рамки родительского дива
-
 
 export default function ModalPost({goToPreviousPost, goToNextPost, comments, removeComment, allComments, save, onChangeComment, comment, removeComents, addComment, setModalPostActive, currentPost}) {
 
@@ -20,15 +16,15 @@ export default function ModalPost({goToPreviousPost, goToNextPost, comments, rem
             <div className= "modal active ModalPost" onClick={() => setModalPostActive(false)}>
                 <p id="close">X</p>
             </div>
-            <Image onClick={goToPreviousPost} className="arrow" id="leftArrowPost" src={leftArrow}/>
+            <Image alt="" onClick={goToPreviousPost} className="arrow" id="leftArrowPost" src={leftArrow}/>
             <div className="ModalPost_content active">
                 <div  className="Modal_post_left_item">
-                     <Image src={currentPost.image}/>
+                     <Image alt="" src={currentPost.image}/>
                 </div>
                 <div className="Modal_post_right_item">
                     <div className="newsFeed_post mtb4">
                         <div className="flex">
-                            <Image className="m2" src={ava}/>
+                            <Image alt="" className="m2" src={ava}/>
                             <div className=" flex flex-cl flex-ai-s">
                                 <h3>Name</h3>
                                 <h4>Местоположение</h4>
@@ -40,7 +36,7 @@ export default function ModalPost({goToPreviousPost, goToNextPost, comments, rem
                     {allComments.map((comment, index) => (
                         <div className="newsFeed_post mtb4">
                             <div className="flex">
-                                <Image className="m2" src={ava}/>
+                                <Image alt="" className="m2" src={ava}/>
                                 <div  className=" flex flex-cl flex-ai-s">
                                     <h3 key ={index}>User</h3>
                                     <h4  style={{width:'100%'}}>{comment}</h4>
@@ -57,23 +53,23 @@ export default function ModalPost({goToPreviousPost, goToNextPost, comments, rem
                         </div>
                         <div className="flex modal_post_icon newsFeed_post_icon">
                             <p>
-                                <Image src={like}/>
-                                <Image src={commentimg}/>
+                                <Image alt="" src={like}/>
+                                <Image alt="" src={commentimg}/>
                             </p>
                             <p>
-                                <Image src={checkbox}/>
+                                <Image alt="" src={checkbox}/>
                             </p>
                         </div>
                         <p>like by name</p>
                         <fieldset className={"fieldset"}>
-                            <Image src={emoji}/>
+                            <Image alt="" src={emoji}/>
                             <textarea value={comments} onChange={onChangeComment} className="textarea" placeholder= "Add a comment"></textarea>
                             <button className="button_none_bordered" onClick={save}>Post</button>
                         </fieldset>
                     </div>
                 </div>
             </div>
-            <Image onClick={goToNextPost} className="arrow" id="rightArrowPost" src={rightArrow}/>
+            <Image alt="" onClick={goToNextPost} className="arrow" id="rightArrowPost" src={rightArrow}/>
         </div>  
     )
 }

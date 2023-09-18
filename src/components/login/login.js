@@ -14,10 +14,10 @@ export default function Login() {
     return (
         <section className="main-card">
             <div className="card">
-                <Image src={instagram}/>
+                <Image alt="" src={instagram}/>
                 <p>Sign up to see photos and videos from your friends.</p>
                 <button className="button button-facebook">
-                    <Image src={facebook}/>
+                    <Image alt="" src={facebook}/>
                     Log in wiht Facebook
                 </button>
                 <div className="card-line">
@@ -49,8 +49,8 @@ export default function Login() {
             <div className="installation">
                 Get the app.
                 <div className="installation-link">
-                    <Image src={googleLogo}/>
-                    <Image src={MicrosoftLogo}/>
+                    <Image alt="" src={googleLogo}/>
+                    <Image alt="" src={MicrosoftLogo}/>
                 </div>
             </div>
         </section>

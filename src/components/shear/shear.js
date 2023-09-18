@@ -19,13 +19,13 @@ export default function Shear({ close, fileData, text, handleTextChange, back}) 
 
                     <div className="flex flex-jc-sb width1">
                         <div className="shear-item-left image">
-                            {fileData && <img close="image" src={fileData}/>}
+                            {fileData && <img alt="" close="image" src={fileData}/>}
                         </div>
                         <div  className="flex flex-cl flex-ai-c shear-item-right">
                             <p>Decode</p>
                             <textarea rows="7" placeholder="Write a caption" cols="20" value={text} onChange={handleTextChange}/>          
                             <div className=" Create_post flex flex-ai-c flex-jc-sb width1">
-                                <Image src={emoji}/>
+                                <Image alt="" src={emoji}/>
                                 <p>{text.length} / 2200 </p>
                             </div>
                             <div className="profile-card-line"></div>

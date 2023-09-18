@@ -63,18 +63,18 @@ export default function Menu() {
     return (
     <main className='flex menu-position'>
         <div className='flex flex-cl container menu'>
-            <Image className='header-logo' src={instagram}/>
+            <Image alt="" className='header-logo' src={instagram}/>
             <div className='flex flex-cl menu_items'>
-                <Link href={'/profile'}><Image src={home}/> Home </Link>
-                <a> <Image src={search}/> Search</a>
-                <a> <Image src={compass}/>Explore</a>
-                <a> <Image src={player}/>Reels</a>
-                <a> <Image src={massage}/>Massage</a>
-                <a> <Image src={heart}/>Notifications</a>
+                <Link href={'/profile'}><Image alt="" src={home}/> Home </Link>
+                <a> <Image alt=""  src={search}/> Search</a>
+                <a> <Image alt="" src={compass}/>Explore</a>
+                <a> <Image alt="" src={player}/>Reels</a>
+                <a> <Image alt="" src={massage}/>Massage</a>
+                <a> <Image alt=""  src={heart}/>Notifications</a>
                 <a onClick={() => setModalActive(true)}><Image src={plus}/>Create</a>
-                <a> <Image src={ava}/>Ptofile</a>
+                <a> <Image alt="" src={ava}/>Ptofile</a>
             </div>
-            <p className='menu_items'><Image src={menu}/> More</p>
+            <p className='menu_items'><Image alt="" src={menu}/> More</p>
         </div>
         <div className='menu_line'></div>
         {modalActive && <Modal setActive={setModalActive}  fileData={fileData} handleFileChange = {handleFileChange} selectedFile={selectedFile}/>}

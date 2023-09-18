@@ -12,7 +12,7 @@ export default function FollowersModal({followersmodalActive, setFollowersModalA
                 </div>
                 <div  className="flex flex-jc-sb ">
                     <div className="flex flex-ai-c Create_post followers_modal">
-                        <Image src={ava}/>
+                        <Image alt="" src={ava}/>
                         <div>
                             <div className="flex">
                                 <label>T_Azamatov .</label>
