@@ -1,16 +1,38 @@
 'use client'
 
+import { END_POINT } from '@/config/end-point'
+import axios from 'axios'
+import { useRouter } from 'next/navigation'
+import { useSelector, useDispatch } from 'react-redux'
+import { authorize, signUp} from "@/app/store/slices/authSlice"
+import { useEffect, useState } from "react"
 
 import googleLogo from '../../../public/images/icon/googleLogo.png'
 import MicrosoftLogo from '../../../public/images/icon/MicrosoftLogo.png'
 import instagram from '../../../public/images/svg/Logo.svg'
 import facebook from '../../../public/images/icon/facebook.png'
-import Link from 'next/link'
-
 import Image from "next/image"
 
 
 export default function Login() {
+
+    const [email, setEmail] = ("")
+    const [full_name, setFull_name] = ("")
+    const [username, setUsername] = ("")
+    const [password, setPassword] = ("")
+
+    const router = useRouter()
+    const isAuth = useSelector((state) =>state.auth.isAuth)
+    const dispatch = useDispatch()
+
+    const sendVerify = ()=>{
+        dispatch(signUp(email, full_name, username, password))
+    }
+
+    useEffect(()=>{
+        if(isAuth)router.push("/user")
+      },[isAuth])
+
     return (
         <section className="main-card">
             <div className="card">
@@ -26,10 +48,10 @@ export default function Login() {
                     <div className="line"></div>
                 </div>
                 <from className="form">
-                    <input className="input" placeholder="Mobile Number or E-mail"/>
-                    <input className="input" placeholder="Full Name"/>
-                    <input className="input" placeholder="Username"/>
-                    <input className="input" placeholder="Password"/>
+                    <input className="input" placeholder="Mobile Number or E-mail" onChange={(e)=>setEmail(e.target.value)}/>
+                    <input className="input" placeholder="Full Name" onChange={(e)=>setFull_name(e.target.value)}/>
+                    <input className="input" placeholder="Username" onChange={(e)=>setUsername(e.target.value)}/>
+                    <input className="input" placeholder="Password" onChange={(e=>setPassword(e.target.value))}/>
                     <div>
                         <p>People who use our service may have uploaded your contact information to Instagram. <a src=''>Learn More</a></p>
                         <p>By signing up, you agree to our
@@ -40,11 +62,11 @@ export default function Login() {
                             <a> Cookies Policy</a>
                         </p>
                     </div>
-                    <button className="button button-sign-up">Sign up</button>
+                    <button className="button button-sign-up" onClick={sendVerify}>Sign up</button>
                 </from>
             </div>
             <div className="card">
-                <p>Have an account? <Link href='/register'> Log in</Link></p>
+                <p>Have an account? <a href='/register' > Log in</a></p>
             </div>
             <div className="installation">
                 Get the app.

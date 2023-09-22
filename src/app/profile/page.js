@@ -1,4 +1,7 @@
 'use client'
+import { UseSelector, useDispatch } from 'react-redux'
+import { logOut } from '../store/slices/authSlice'
+
 import Posts from '@/components/posts'
 import ModalPost from '@/components/modalPost/modalPost'
 import FollowersModal from '@/components/followersModal/followersModal'
@@ -65,8 +68,14 @@ const posts = [
 
 import { useState } from 'react'
 import Image from "next/image"
+import { authorize } from '../store/slices/authSlice'
+import { useSelector, useDispatch } from 'react-redux'
 
 export default function Profile() {
+
+    const isAuth = useSelector((state) =>state.auth.isAuth)
+    const dispatch = useDispatch()
+
     
     // const {posts, setPosts} = useState(posts)
 
@@ -136,7 +145,7 @@ export default function Profile() {
                     <div className='flex flex-ai-c profile-card-nick'>
                         <h3>terrylucas</h3>
                         <button className='button profile-card-buttom'>Follow</button>
-                        <p>...</p>
+                        {isAuth && < button className='button-no-border' onClick={authorize}>Выйти</button >}
                     </div>
                     <div className='flex followers'>
                         <p onClick={() => setFollowersModalActive(true)}>1.285 posts</p>
