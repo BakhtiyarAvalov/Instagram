@@ -17,10 +17,7 @@ export const authSlice = createSlice({
         id: decoded.id,
         email: decoded.email,
         full_name: decoded.full_name,
-        user_name: decoded.user_name,
-        phone: decoded.phone,
-        role: decoded.role,
-
+        username: decoded.username,
       }
       state.isAuth = true
       state.tokenExt = decoded.exp
@@ -39,19 +36,19 @@ export const signIn = (email,  password) => (dispatch) => {
     email, 
     password,
   } ).then(res => {
-    console.log(res.data);
-    // dispatch(authorize(res.data)) 
+    // console.log(res.data);
+    dispatch(authorize(res.data)) 
   })
-
 }
 
-export const signUp = (email, full_name, username, password) => (dispatch) => {
+export const signUp = (email, full_name, username, password, router) => (dispatch) => {
   axios.post(`${END_POINT}/api/auth/signup`,{
     email, 
     full_name,
     username,
     password,
-  } )
+  })
+  router.push("/register")
 }
 
 export default authSlice.reducer

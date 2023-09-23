@@ -1,6 +1,10 @@
 'use client'
-import { UseSelector, useDispatch } from 'react-redux'
-import { logOut } from '../store/slices/authSlice'
+
+import { useState } from 'react'
+import { authorize } from '../store/slices/authSlice'
+import { useSelector, useDispatch } from 'react-redux'
+
+import Image from "next/image"
 
 import Posts from '@/components/posts'
 import ModalPost from '@/components/modalPost/modalPost'
@@ -66,10 +70,6 @@ const posts = [
     
 ]
 
-import { useState } from 'react'
-import Image from "next/image"
-import { authorize } from '../store/slices/authSlice'
-import { useSelector, useDispatch } from 'react-redux'
 
 export default function Profile() {
 

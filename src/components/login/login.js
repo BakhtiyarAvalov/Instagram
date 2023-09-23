@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useSelector, useDispatch } from 'react-redux'
 import {signUp} from "@/app/store/slices/authSlice"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 import googleLogo from '../../../public/images/icon/googleLogo.png'
 import MicrosoftLogo from '../../../public/images/icon/MicrosoftLogo.png'
@@ -14,23 +14,24 @@ import Image from "next/image"
 
 export default function Login() {
 
-    const [email, setEmail] = ("")
-    const [full_name, setFull_name] = ("")
-    const [username, setUsername] = ("")
-    const [password, setPassword] = ("")
-
+    const [email, setEmail] = useState("")
+    const [full_name, setFull_name] = useState("")
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
     const router = useRouter()
-    const isAuth = useSelector((state) =>state.auth.isAuth)
+    
+    const isAuth = useSelector((state) => state.auth.isAuth)
     const dispatch = useDispatch()
 
-    const sendVerify = ()=>{
-        dispatch(signUp(email, full_name, username, password))
+    const sendVerify = () => {
+        dispatch(signUp(email, full_name, username, password, router))
     }
 
     useEffect(()=>{
-        if(isAuth)router.push("/regisret")
-        if(!isAuth)router.push("/login")
+        if(isAuth)router.push("/user")
+        if(isAuth)router.push("/login")
       },[isAuth])
+
 
     return (
         <section className="main-card">
@@ -47,10 +48,10 @@ export default function Login() {
                     <div className="line"></div>
                 </div>
                 <from className="form">
-                    <input className="input" placeholder="Mobile Number or E-mail" onChange={(e)=>setEmail(e.target.value)}/>
-                    <input className="input" placeholder="Full Name" onChange={(e)=>setFull_name(e.target.value)}/>
-                    <input className="input" placeholder="Username" onChange={(e)=>setUsername(e.target.value)}/>
-                    <input className="input" placeholder="Password" onChange={(e=>setPassword(e.target.value))}/>
+                    <input className="input" placeholder="Mobile Number or E-mail" onChange={(e)=>setEmail(e.target.value)} value={email}/>
+                    <input className="input" placeholder="Full Name" onChange={(e)=>setFull_name(e.target.value)} value={full_name}/>
+                    <input className="input" placeholder="Username" onChange={(e)=>setUsername(e.target.value)} value={username}/>
+                    <input className="input" placeholder="Password" onChange={(e=>setPassword(e.target.value))} value={password}/>
                     <div>
                         <p>People who use our service may have uploaded your contact information to Instagram. <a src=''>Learn More</a></p>
                         <p>By signing up, you agree to our

@@ -1,9 +1,9 @@
 'use client'
 
 
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { signIn } from '@/app/store/slices/authSlice'
 
 import Link from "next/link"
@@ -17,14 +17,14 @@ import facebook from '../../../public/images/icon/facebook.png'
 
 
 export default function Register () {
-    const [email, setEmail] = ("")
-    const [password, setPassword] = ("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     const router = useRouter()
     const isAuth = useSelector((state) =>state.auth.isAuth)
     const dispatch = useDispatch()
 
-    const sendVerifyCode = ()=>{
+    const systemLogIn = ()=>{
         dispatch(signIn(email, password))
     }
 
@@ -34,12 +34,13 @@ export default function Register () {
 
     return (
         <section className="main-card">
+            {/* {isAuth ? <p>True</p> : <p>False</p>} */}
             <div className="card">
                 <Image alt="" src={instagram}/>
                 <from className="form">
-                    <input className="input" placeholder="Mobile Number or E-mail" onChange={(e)=> setEmail(e.target.value)}/>
-                    <input className="input" placeholder="Password" onChange={(e)=> setPassword(e.target.value)}/>
-                    <button className="button button-sign-up" type='button' onClick={()=>sendVerifyCode}>log in</button>
+                    <input className="input" placeholder="Mobile Number or E-mail" onChange={(e)=> setEmail(e.target.value)} value={email}/>
+                    <input className="input" placeholder="Password" onChange={(e)=> setPassword(e.target.value)} value={password}/>
+                    <button className="button button-sign-up" type='button' onClick={systemLogIn}>log in</button>
                 </from>
                 <div className="card-line">
                     <div className="line"></div>
