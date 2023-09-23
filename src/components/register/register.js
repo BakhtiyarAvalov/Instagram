@@ -1,37 +1,45 @@
 'use client'
 
 
-import { END_POINT } from '@/config/end-point'
-import axios from 'axios'
+import { useRouter } from 'next/router'
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from "react"
+import { signIn } from '@/app/store/slices/authSlice'
+
+import Link from "next/link"
+import Image from "next/image"
+
 import googleLogo from '../../../public/images/icon/googleLogo.png'
 import MicrosoftLogo from '../../../public/images/icon/MicrosoftLogo.png'
 import instagram from '../../../public/images/svg/Logo.svg'
 import facebook from '../../../public/images/icon/facebook.png'
-import Link from "next/link"
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect, useState } from "react"
-import { authorize } from "@/app/store/slices/authSlice"
 
-import Image from "next/image"
+
 
 export default function Register () {
+    const [email, setEmail] = ("")
+    const [password, setPassword] = ("")
+
+    const router = useRouter()
     const isAuth = useSelector((state) =>state.auth.isAuth)
     const dispatch = useDispatch()
 
-    // useEffect(()=>{
-    //     axios.get(`${END_POINT}/api/auth/signin`).then(res => {
-    //       setCities(res.data)
-    //     })
-    //   },[])
+    const sendVerifyCode = ()=>{
+        dispatch(signIn(email, password))
+    }
+
+    useEffect(()=>{
+        if(isAuth)router.push("/user")
+      },[isAuth])
 
     return (
         <section className="main-card">
             <div className="card">
                 <Image alt="" src={instagram}/>
                 <from className="form">
-                    <input className="input" placeholder="Mobile Number or E-mail"/>
-                    <input className="input" placeholder="Password"/>
-                    <button className="button button-sign-up" onClick={()=>dispatch(authorize())}>log in</button>
+                    <input className="input" placeholder="Mobile Number or E-mail" onChange={(e)=> setEmail(e.target.value)}/>
+                    <input className="input" placeholder="Password" onChange={(e)=> setPassword(e.target.value)}/>
+                    <button className="button button-sign-up" type='button' onClick={()=>sendVerifyCode}>log in</button>
                 </from>
                 <div className="card-line">
                     <div className="line"></div>

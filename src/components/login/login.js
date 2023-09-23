@@ -1,11 +1,9 @@
 'use client'
 
-import { END_POINT } from '@/config/end-point'
-import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { useSelector, useDispatch } from 'react-redux'
-import { authorize, signUp} from "@/app/store/slices/authSlice"
-import { useEffect, useState } from "react"
+import {signUp} from "@/app/store/slices/authSlice"
+import { useEffect } from "react"
 
 import googleLogo from '../../../public/images/icon/googleLogo.png'
 import MicrosoftLogo from '../../../public/images/icon/MicrosoftLogo.png'
@@ -30,7 +28,8 @@ export default function Login() {
     }
 
     useEffect(()=>{
-        if(isAuth)router.push("/user")
+        if(isAuth)router.push("/regisret")
+        if(!isAuth)router.push("/login")
       },[isAuth])
 
     return (
@@ -62,7 +61,7 @@ export default function Login() {
                             <a> Cookies Policy</a>
                         </p>
                     </div>
-                    <button className="button button-sign-up" onClick={sendVerify}>Sign up</button>
+                    <button className="button button-sign-up" type='button' onClick={sendVerify}>Sign up</button>
                 </from>
             </div>
             <div className="card">

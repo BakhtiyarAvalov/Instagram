@@ -34,6 +34,16 @@ export const authSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { authorize, logOut} = authSlice.actions
 
+export const signIn = (email,  password) => (dispatch) => {
+  axios.post(`${END_POINT}/api/auth/signin`,{
+    email, 
+    password,
+  } ).then(res => {
+    console.log(res.data);
+    // dispatch(authorize(res.data)) 
+  })
+
+}
 
 export const signUp = (email, full_name, username, password) => (dispatch) => {
   axios.post(`${END_POINT}/api/auth/signup`,{
@@ -41,10 +51,7 @@ export const signUp = (email, full_name, username, password) => (dispatch) => {
     full_name,
     username,
     password,
-  } ).then(res => {
-    dispatch(authorize(res.data)) 
-  })
-
+  } )
 }
 
 export default authSlice.reducer
