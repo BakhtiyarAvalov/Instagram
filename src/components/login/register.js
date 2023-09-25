@@ -16,7 +16,7 @@ import facebook from '../../../public/images/icon/facebook.png'
 
 
 
-export default function Register () {
+export default function Login () {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 

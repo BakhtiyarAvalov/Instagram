@@ -1,6 +1,6 @@
 
 import Footer from '@/components/footer/footer'
-import Register from '@/components/register/register'
+import Register from '@/components/login/register'
 export default function Logo() {
   return (
     <main>

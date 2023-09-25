@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
-import { authorize } from '../store/slices/authSlice'
+import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { logOut } from '../store/slices/authSlice'
+import { useRouter } from 'next/navigation'
 
 import Image from "next/image"
 
@@ -72,13 +73,16 @@ const posts = [
 
 
 export default function Profile() {
+    const router = useRouter()
 
     const isAuth = useSelector((state) =>state.auth.isAuth)
     const dispatch = useDispatch()
+   
+    useEffect(()=>{
+        if(!isAuth)router.push("/register")
+      },[isAuth])
 
-    
     // const {posts, setPosts} = useState(posts)
-
     const [modaPostlActive, setModalPostActive] = useState(false)
     const [addStories, setAddStories] = useState(false)
     const [followersmodalActive, setFollowersModalActive] = useState(false)
@@ -145,7 +149,7 @@ export default function Profile() {
                     <div className='flex flex-ai-c profile-card-nick'>
                         <h3>terrylucas</h3>
                         <button className='button profile-card-buttom'>Follow</button>
-                        {isAuth && < button className='button-no-border' onClick={authorize}>Выйти</button >}
+                        {isAuth && < button className='button-no-border' type='button' onClick={() => dispatch(logOut())}>Выйти</button >}
                     </div>
                     <div className='flex followers'>
                         <p onClick={() => setFollowersModalActive(true)}>1.285 posts</p>

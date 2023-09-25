@@ -12,7 +12,7 @@ import facebook from '../../../public/images/icon/facebook.png'
 import Image from "next/image"
 
 
-export default function Login() {
+export default function Register() {
 
     const [email, setEmail] = useState("")
     const [full_name, setFull_name] = useState("")
@@ -29,7 +29,7 @@ export default function Login() {
 
     useEffect(()=>{
         if(isAuth)router.push("/user")
-        if(isAuth)router.push("/login")
+        if(!isAuth)router.push("/login")
       },[isAuth])
 
 
