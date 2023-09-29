@@ -14,22 +14,46 @@ import menu from '../../../public/images/svg/menu.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { END_POINT } from '@/config/end-point'
+import axios from 'axios'
 import Modal from '@/components/modal/modal'
 import { useState } from 'react'
 import Shear from '../shear/shear'
+import { useRouter } from 'next/navigation'
+// import { createPost } from '@/app/store/slices/postSlice'
 
 export default function Menu() {
-
+    const router = useRouter()
     const [modalActive, setModalActive] = useState(false)
     const [createPostShear, setCreatePostShear] = useState(false)
-    
+    const [description, setText] = useState('');
+    const [image, setImage] = useState([])
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [fileData, setFileData] = useState(null);
+
+
+    const uploadFile = async (file) => {
+      const formData = new FormData();
+      formData.append('image', file); 
+    try {      
+      const res = await axios.post(`${END_POINT}/api/post/newPost`, formData, {
+    })
+    }catch (error) {  
+      console.error('Ошибка при загрузке файла', error);
+      }
+    }
+
+    // const fileName = function(req, file, cb){
+    //   let ext = file.originalName.split(".")
+    //   ext = ext[ext.length - 1]
+    //   const unidue = Data.now() + '.' + ext
+    //   cb(null, unidue)
+    // }
+
     const setCreatePostShearActive = ()=>{
       setModalActive(false)
       setCreatePostShear(true)
-    }
-
-    const [selectedFile, setSelectedFile] = useState(null);
-    const [fileData, setFileData] = useState(null);
+    } 
     
     const handleFileChange = (event) => {
       const file = event.target.files[0];
@@ -41,12 +65,22 @@ export default function Menu() {
           setFileData(e.target.result);
         };
         reader.readAsDataURL(file);
+        uploadFile(file)
         setCreatePostShearActive()
       }
     }
 
+    const handleSave = ()=> {
+      dispatchEvent((
+        {
+          image,
+          description,
+        }, router
+      ))
 
-    const [text, setText] = useState('');
+    }
+    
+
     const handleTextChange = (e) => {
     
       const newText = e.target.value;
@@ -60,6 +94,8 @@ export default function Menu() {
         setModalActive(true)
       }
 
+
+
     return (
     <main className='flex menu-position'>
         <div className='flex flex-cl container menu'>
@@ -71,14 +107,14 @@ export default function Menu() {
                 <a> <Image alt="" src={player}/>Reels</a>
                 <a> <Image alt="" src={massage}/>Massage</a>
                 <a> <Image alt=""  src={heart}/>Notifications</a>
-                <a onClick={() => setModalActive(true)}><Image src={plus}/>Create</a>
+                <a onClick={() => setModalActive(true)}><Image alt='' src={plus}/>Create</a>
                 <a> <Image alt="" src={ava}/>Ptofile</a>
             </div>
             <p className='menu_items'><Image alt="" src={menu}/> More</p>
         </div>
         <div className='menu_line'></div>
         {modalActive && <Modal setActive={setModalActive}  fileData={fileData} handleFileChange = {handleFileChange} selectedFile={selectedFile}/>}
-        {createPostShear && <Shear  back={back} handleTextChange={handleTextChange}  close={setCreatePostShear} fileData={fileData} text={text}/>}
+        {createPostShear && <Shear handleSave={handleSave}  back={back} handleTextChange={handleTextChange}  close={setCreatePostShear} fileData={fileData} text={description}/>}
     </main>
   )
 }

@@ -4,7 +4,7 @@ import leftArrow from "../../../public/images/svg/leftArrow.svg"
 
 import Image from "next/image"
 
-export default function Shear({ close, fileData, text, handleTextChange, back}) {
+export default function Shear({handleSave, close, fileData, text, handleTextChange, back}) {
 
     return (
         <div className= "modal active" onClick={() => close(false)}>
@@ -14,7 +14,7 @@ export default function Shear({ close, fileData, text, handleTextChange, back}) 
                     <div className=" Create_post flex flex-ai-c flex-jc-sb Create_post_title">
                         <Image onClick ={back} src={leftArrow} alt=""/>
                         <p>Create new post</p>
-                        <button className="button-no-border">Shear</button>
+                        <button type="button" className="button-no-border" onClick={handleSave}>Shear</button>
                     </div>
 
                     <div className="flex flex-jc-sb width1">

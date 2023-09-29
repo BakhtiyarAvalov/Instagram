@@ -47,7 +47,7 @@ export default function Register() {
                     OR
                     <div className="line"></div>
                 </div>
-                <from className="form">
+                <form className="form">
                     <input className="input" placeholder="Mobile Number or E-mail" onChange={(e)=>setEmail(e.target.value)} value={email}/>
                     <input className="input" placeholder="Full Name" onChange={(e)=>setFull_name(e.target.value)} value={full_name}/>
                     <input className="input" placeholder="Username" onChange={(e)=>setUsername(e.target.value)} value={username}/>
@@ -63,7 +63,7 @@ export default function Register() {
                         </p>
                     </div>
                     <button className="button button-sign-up" type='button' onClick={sendVerify}>Sign up</button>
-                </from>
+                </form>
             </div>
             <div className="card">
                 <p>Have an account? <a href='/register' > Log in</a></p>

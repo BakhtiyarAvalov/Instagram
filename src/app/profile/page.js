@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { logOut } from '../store/slices/authSlice'
 import { useRouter } from 'next/navigation'
+import { getMyPosts } from '@/app/store/slices/postSlice'
 
 import Image from "next/image"
 
@@ -16,72 +17,26 @@ import avatar from '../../../public/images/svg/Avatar.svg'
 import saved from '../../../public/images/svg/save.svg'
 import top from '../../../public/images/svg/top.svg'
 import player from '../../../public/images/svg/player.svg'
-import post from '../../../public/images/post.png'
-import post1 from '../../../public/images/post1.png'
-import post2 from '../../../public/images/post2.png'
-import post3 from '../../../public/images/post3.png'
-import post4 from '../../../public/images/post4.png'
-import post5 from '../../../public/images/post5.png'
-
-
-const posts = [
-    {
-        show: 24,
-        Allcomments: 55,
-        like: 190,
-        image: post5,
-        name: "user1",
-    },
-    {
-        show: 244,
-        Allcomments: 48,
-        like: 86,
-        image: post3,
-        name: "user2"
-    },
-    {
-        show: 800,
-        Allcomments: 35,
-        like: 150,
-        image: post4,
-        name: "user3"
-    },   
-    {
-        show: 39,
-        Allcomments: 94,
-        like: 290,
-        image: post1,
-        name: "user4"
-    }
-    ,   
-    {
-        show: 3,
-        Allcomments: 4,
-        like: 20,
-        image: post2,
-        name:  "user5"
-    },   
-    {
-        show: 39,
-        Allcomments: 9,
-        like: 20,
-        image: post,
-        name: "user6"
-    }
-    
-]
 
 
 export default function Profile() {
+
     const router = useRouter()
+    const dispatch = useDispatch()
 
     const isAuth = useSelector((state) =>state.auth.isAuth)
-    const dispatch = useDispatch()
-   
+    const posts = useSelector((state) =>state.post.posts)
+
+    const didMount = () => {
+        dispatch(getMyPosts())
+    }
+    useEffect((didMount), [])
+
     useEffect(()=>{
         if(!isAuth)router.push("/register")
       },[isAuth])
 
+    
     // const {posts, setPosts} = useState(posts)
     const [modaPostlActive, setModalPostActive] = useState(false)
     const [addStories, setAddStories] = useState(false)

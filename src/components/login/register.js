@@ -36,19 +36,19 @@ export default function Login () {
         <section className="main-card">
             {/* {isAuth ? <p>True</p> : <p>False</p>} */}
             <div className="card">
-                <Image alt="" src={instagram}/>
-                <from className="form">
+                <Image src={instagram} alt=""/>
+                <form className="form">
                     <input className="input" placeholder="Mobile Number or E-mail" onChange={(e)=> setEmail(e.target.value)} value={email}/>
                     <input className="input" placeholder="Password" onChange={(e)=> setPassword(e.target.value)} value={password}/>
                     <button className="button button-sign-up" type='button' onClick={systemLogIn}>log in</button>
-                </from>
+                </form>
                 <div className="card-line">
                     <div className="line"></div>
                     OR
                     <div className="line"></div>
                 </div>
                 <button className="button button-facebook-login">
-                    <Image alt="" src={facebook}/>
+                    <Image src={facebook} alt=""/>
                     Log in wiht Facebook
                 </button>
                 <a>Forgot password?</a>
@@ -59,8 +59,8 @@ export default function Login () {
             <div className="installation">
                 Get the app.
                 <div className="installation-link">
-                    <Image alt="" src={googleLogo}/>
-                    <Image alt="" src={MicrosoftLogo}/>
+                    <Image src={googleLogo} alt=""/>
+                    <Image src={MicrosoftLogo} alt=""/>
                 </div>
             </div>
         </section>
