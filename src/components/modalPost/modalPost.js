@@ -4,7 +4,7 @@ import emoji from "../../../public/images/svg/emoji.svg"
 import checkbox from "../../../public/images/svg/checkbox.svg"
 import rightArrow from "../../../public/images/svg/rightArrow.svg"
 import leftArrow from "../../../public/images/svg/leftArrow.svg"
-
+import { END_POINT } from "@/config/end-point"
 import ava from "../../../public/images/svg/Ava.svg"
 import Image from "next/image"
 
@@ -19,7 +19,7 @@ export default function ModalPost({goToPreviousPost, goToNextPost, comments, rem
             <Image alt="" onClick={goToPreviousPost} className="arrow" id="leftArrowPost" src={leftArrow}/>
             <div className="ModalPost_content active">
                 <div  className="Modal_post_left_item">
-                     <Image alt="" src={currentPost.image}/>
+                    <img src={`${END_POINT}${currentPost.image}`} alt=""/>
                 </div>
                 <div className="Modal_post_right_item">
                     <div className="newsFeed_post mtb4">

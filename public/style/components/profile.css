@@ -87,3 +87,8 @@
 .followers> h3:hover{
     color: #0095F6;
 }
+.postImage{
+    width: 200px;
+    height: 200px;
+    
+}

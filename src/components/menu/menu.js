@@ -20,35 +20,17 @@ import Modal from '@/components/modal/modal'
 import { useState } from 'react'
 import Shear from '../shear/shear'
 import { useRouter } from 'next/navigation'
-// import { createPost } from '@/app/store/slices/postSlice'
+import { useDispatch } from 'react-redux'
+import { createPost } from '@/app/store/slices/postSlice'
 
 export default function Menu() {
+    const dispatch = useDispatch()
     const router = useRouter()
     const [modalActive, setModalActive] = useState(false)
     const [createPostShear, setCreatePostShear] = useState(false)
     const [description, setText] = useState('');
-    const [image, setImage] = useState([])
     const [selectedFile, setSelectedFile] = useState(null);
     const [fileData, setFileData] = useState(null);
-
-
-    const uploadFile = async (file) => {
-      const formData = new FormData();
-      formData.append('image', file); 
-    try {      
-      const res = await axios.post(`${END_POINT}/api/post/newPost`, formData, {
-    })
-    }catch (error) {  
-      console.error('Ошибка при загрузке файла', error);
-      }
-    }
-
-    // const fileName = function(req, file, cb){
-    //   let ext = file.originalName.split(".")
-    //   ext = ext[ext.length - 1]
-    //   const unidue = Data.now() + '.' + ext
-    //   cb(null, unidue)
-    // }
 
     const setCreatePostShearActive = ()=>{
       setModalActive(false)
@@ -65,19 +47,18 @@ export default function Menu() {
           setFileData(e.target.result);
         };
         reader.readAsDataURL(file);
-        uploadFile(file)
         setCreatePostShearActive()
       }
     }
 
     const handleSave = ()=> {
-      dispatchEvent((
-        {
-          image,
-          description,
-        }, router
-      ))
-
+      const formData = new FormData();
+      formData.append('image', selectedFile); 
+      formData.append('description', description)
+      dispatch(createPost(formData))
+      setCreatePostShear(false)
+      setText('')
+      setSelectedFile(null)
     }
     
 

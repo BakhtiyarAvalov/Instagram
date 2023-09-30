@@ -30,13 +30,12 @@ export const getMyPosts = () => async (dispatch) => {
         alert("Что то пошло не так сооющите о ошибке Тех. специалистам")
     }
 }
-export const createPost = (sendData, router) => async (dispatch) => {
+export const createPost = (sendData) => async (dispatch) => {
   try{
       const res = await axios.post(`${END_POINT}/api/post/newPost`, sendData)
-      router.push('/user')
       dispatch(uppendPost({newPosts: res.data}))
   }catch(e){
-      alert("Что то пошло не так сооющите о ошибке Тех. специалистам")
+      alert("Что то пошло не так сообщите о ошибке Тех. специалистам")
   }
 }
 

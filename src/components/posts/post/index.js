@@ -1,13 +1,14 @@
 import eye from '../../../../public/images/svg/eye.svg'
 import massage from '../../../../public/images/svg/message.svg'
 import heart from '../../../../public/images/svg/heart.svg'
+import { END_POINT } from '@/config/end-point'
 
 import Image from "next/image"
 
 
 export default function Post({item, onClick}){
     return <div className='post'>
-        <div onClick={()=>onClick(item)} ><Image alt='' src={item.image}/></div>
+        <div onClick={()=>onClick(item)} ><img className='postImage' alt='' src={`${END_POINT}${item.image}`}/></div>
         <div className='post-stat'> 
             <a> {item.show} <Image src={eye} alt=''/></a>
             <a> {item.Allcomments} <Image src={massage} alt=''/></a>
