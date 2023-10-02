@@ -7,10 +7,19 @@ import leftArrow from "../../../public/images/svg/leftArrow.svg"
 import { END_POINT } from "@/config/end-point"
 import ava from "../../../public/images/svg/Ava.svg"
 import Image from "next/image"
-
+import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react"
+import { getPostsById } from "@/app/store/slices/postSlice"
 
 export default function ModalPost({goToPreviousPost, goToNextPost, comments, removeComment, allComments, save, onChangeComment, comment, removeComents, addComment, setModalPostActive, currentPost}) {
+    const dispatch = useDispatch()
+    const post = useSelector(state => state.post.post)
+    const didMount = () => {
+        dispatch(getPostsById(id))
+    }
+    // console.log("modal", post);
 
+    useEffect(didMount, [])
     return (
         <div>
             <div className= "modal active ModalPost" onClick={() => setModalPostActive(false)}>

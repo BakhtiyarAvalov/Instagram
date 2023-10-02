@@ -37,7 +37,6 @@ export default function Profile() {
       },[isAuth])
 
     
-    // const {posts, setPosts} = useState(posts)
     const [modaPostlActive, setModalPostActive] = useState(false)
     const [addStories, setAddStories] = useState(false)
     const [followersmodalActive, setFollowersModalActive] = useState(false)
@@ -45,6 +44,7 @@ export default function Profile() {
     const [comments, setComments] = useState(""); 
     const [allComments, setAllComments] = useState([])
     
+    // const {posts, setPosts} = useState(posts)
     // const [selectedPostIndex, setSelectedPostIndex] = useState(0);
 
     const openCurrentPost = (post, index) => {
@@ -91,7 +91,6 @@ export default function Profile() {
     //         setSelectedPostIndex(selectedPostIndex + 1);
         
     // };
-
 
 
 
