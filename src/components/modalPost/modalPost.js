@@ -1,3 +1,4 @@
+"use client"
 import like from "../../../public/images/svg/like.svg"
 import commentimg from "../../../public/images/svg/comment.svg"
 import emoji from "../../../public/images/svg/emoji.svg"
@@ -8,18 +9,26 @@ import { END_POINT } from "@/config/end-point"
 import ava from "../../../public/images/svg/Ava.svg"
 import Image from "next/image"
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
-import { getPostsById } from "@/app/store/slices/postSlice"
-
-export default function ModalPost({goToPreviousPost, goToNextPost, comments, removeComment, allComments, save, onChangeComment, comment, removeComents, addComment, setModalPostActive, currentPost}) {
+import { useState } from "react"
+import { deletePost } from "@/app/store/slices/postSlice"
+export default function ModalPost({setEditPost, goToPreviousPost, goToNextPost, comments, removeComment, allComments, save, onChangeComment, comment, removeComents, addComment, setModalPostActive, currentPost}) {
     const dispatch = useDispatch()
-    const post = useSelector(state => state.post.post)
-    const didMount = () => {
-        dispatch(getPostsById(id))
-    }
-    // console.log("modal", post);
+    const [postEditor, setPostEditor] = useState(false)
 
-    useEffect(didMount, [])
+    const panelActiv = () => {
+        setPostEditor(!postEditor);
+    };
+
+    const handleEditClick = () => {
+        setModalPostActive(false)
+        setEditPost(true)
+    };
+    const handleDeleteClick = () => {
+        dispatch(deletePost(id))
+        setModalPostActive(false)
+    };
+    const id = currentPost.id
+
     return (
         <div>
             <div className= "modal active ModalPost" onClick={() => setModalPostActive(false)}>
@@ -35,11 +44,18 @@ export default function ModalPost({goToPreviousPost, goToNextPost, comments, rem
                         <div className="flex">
                             <Image alt="" className="m2" src={ava}/>
                             <div className=" flex flex-cl flex-ai-s">
-                                <h3>Name</h3>
-                                <h4>Местоположение</h4>
+                                {/* <h3>{currentPost && currentPost.User.username}</h3> */}
+                                <h4>{currentPost && currentPost.description}</h4>
                             </div>
                         </div>
-                        <p>...</p>
+                        <div>
+                            {!postEditor && <p onClick={panelActiv} >...</p>}
+                            {postEditor && <p onClick={panelActiv} >X</p>}
+                            {postEditor && (<div className="flex flex-cl edit_panel_button">
+                                <button className="button_panel" onClick={handleEditClick}>Редактировать</button>
+                                <button className="button_panel" onClick={handleDeleteClick}>Удалить</button>
+                            </div>)}
+                        </div>
                     </div>
                     <div style={{ height: '35%', width:'100%', overflowY: 'scroll' }}>
                     {allComments.map((comment, index) => (

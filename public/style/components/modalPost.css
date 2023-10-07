@@ -71,3 +71,6 @@
     right: 0;
     width: 100%;
 }
+#editFile{
+    position: relative;
+}

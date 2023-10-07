@@ -6,6 +6,7 @@ import { logOut } from '../store/slices/authSlice'
 import { useRouter } from 'next/navigation'
 import { getMyPosts } from '@/app/store/slices/postSlice'
 
+import EditPost from '@/components/editPost/editPost'
 import Image from "next/image"
 
 import Posts from '@/components/posts'
@@ -43,12 +44,12 @@ export default function Profile() {
     const [currentPost, setcurrentPost]=useState({})
     const [comments, setComments] = useState(""); 
     const [allComments, setAllComments] = useState([])
-    
+    const [editPost, setEditPost] = useState(false)
     // const {posts, setPosts} = useState(posts)
     // const [selectedPostIndex, setSelectedPostIndex] = useState(0);
 
     const openCurrentPost = (post, index) => {
-        console.log(post.image)
+        // console.log(post.image)
         setModalPostActive(true) 
         setcurrentPost(post) 
         // setSelectedPostIndex(index) 
@@ -93,7 +94,6 @@ export default function Profile() {
     // };
 
 
-
     return (
     <main className='profile-position ml'>
         <div className='flex container flex-cl'>
@@ -126,8 +126,9 @@ export default function Profile() {
             </div>
         </div>
         {followersmodalActive && <FollowersModal setFollowersModalActive={setFollowersModalActive}/>}
-        {modaPostlActive &&  <ModalPost removeComment={removeComment} comments={comments} save={save} allComments={allComments} onChangeComment={onChangeComment} currentPost={currentPost} setModalPostActive={setModalPostActive}/>}
+        {modaPostlActive &&  <ModalPost setEditPost={setEditPost} removeComment={removeComment} comments={comments} save={save} allComments={allComments} onChangeComment={onChangeComment} currentPost={currentPost} setModalPostActive={setModalPostActive}/>}
         {addStories && <ShareStories setAddStories={setAddStories}/>}
+        {editPost && <EditPost close = {setEditPost} back={setModalPostActive} currentPost={currentPost}/>}
     </main>
   )
 }
