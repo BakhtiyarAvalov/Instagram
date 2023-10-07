@@ -17,8 +17,8 @@ export default function EditPost({close, back, currentPost}) {
         close(false)
     }
 
-    console.log("test", currentPost);
-    const [description, setDescription] = useState('');
+    // console.log("test", currentPost);
+    const [description, setDescription] = useState(currentPost.description);
     const [selectedFile, setSelectedFile] = useState(null);
     const [fileData, setFileData] = useState(`${END_POINT}${currentPost.image}`);
     
@@ -35,32 +35,32 @@ export default function EditPost({close, back, currentPost}) {
       }
     }
 
-    const editFile = ()=>{
-        setFileData([])
-        handleFileChange()
+    const editFile = (e)=>{
+        handleFileChange(e)
     }
+    console.log("test1", selectedFile);
+    console.log("test", description);
+    const id = currentPost.id
+
 
     const handleSave = ()=> {
         const formData = new FormData();
         formData.append('image', selectedFile); 
         formData.append('description', description)
-        dispatch(editPost(formData))
-        setCreatePostShear(false)
+        dispatch(editPost(id))
         setDescription('')
         setSelectedFile(null)
-        // console.log("test");
+        console.log("test");
       }
 
 
-    const [text, setText] = useState(currentPost.description);
-    const handleTextChange = (e) => {
-    
+    const handleTextChange = (e) => {    
       const newText = e.target.value;
       if (newText.length < 2200) {
-        setText(newText);
+        setDescription(newText);
       }
     }
-    console.log("test", fileData);
+    // console.log("test", fileData);
     return (
         <div className= "modal active" onClick={() => close(false)}>
             <p id="close">X</p>
@@ -80,10 +80,10 @@ export default function EditPost({close, back, currentPost}) {
                         </div>
                         <div  className="flex flex-cl flex-ai-c shear-item-right">
                             <p>Decode</p>
-                            <textarea rows="7" placeholder="Write a caption" cols="20" value={text} onChange={handleTextChange}/> 
+                            <textarea rows="7" placeholder="Write a caption" cols="20" value={description} onChange={handleTextChange}/> 
                             <div className=" Create_post flex flex-ai-c flex-jc-sb width1">
                                 <Image alt="" src={emoji}/>
-                                <p>{text.length} / 2200 </p>
+                                <p>{description.length} / 2200 </p>
                             </div>
                             <div className="profile-card-line"></div>
                         </div>

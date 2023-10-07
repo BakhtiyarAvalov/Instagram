@@ -45,7 +45,8 @@ export const createPost = (sendData) => async (dispatch) => {
   }
 }
 
-export const editPost = (sendData, router) => async (dispatch) => {
+export const editPost = (sendData, id) => async (dispatch) => {
+  console.log("test");
   try{
       const res = await axios.put(`${END_POINT}/api/post/editPost`, sendData)
   }catch(e){
