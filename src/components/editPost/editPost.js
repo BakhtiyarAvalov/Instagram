@@ -20,7 +20,7 @@ export default function EditPost({close, back, currentPost}) {
     console.log("test", currentPost);
     const [description, setDescription] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
-    const [fileData, setFileData] = useState(null);
+    const [fileData, setFileData] = useState(`${END_POINT}${currentPost.image}`);
     
     const handleFileChange = (event) => {
       const file = event.target.files[0];
@@ -73,7 +73,7 @@ export default function EditPost({close, back, currentPost}) {
                     </div>
                     <div className="flex flex-jc-sb width1">
                         <div id="editFile" className="shear-item-left image">
-                            {currentPost && <img  alt="" close="image" src={currentPost.image}/>}
+                            {currentPost && <img  alt="" close="image" src={fileData}/>}
                             <label className="editFile"  htmlFor="upload-file">Изменить картинку</label>
                             <input type="file" onChange={editFile}   id="upload-file" hidden="hidden"/>
                             {selectedFile && <p>Выбран файл: {selectedFile.name}</p>}
