@@ -47,7 +47,7 @@ export default function EditPost({close, back, currentPost}) {
         const formData = new FormData();
         formData.append('image', selectedFile); 
         formData.append('description', description)
-        dispatch(editPost(id))
+        dispatch(editPost(id, formData))
         setDescription('')
         setSelectedFile(null)
         console.log("test");
