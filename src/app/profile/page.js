@@ -6,6 +6,7 @@ import { logOut } from '../store/slices/authSlice'
 import { useRouter } from 'next/navigation'
 import { getMyPosts } from '@/app/store/slices/postSlice'
 
+
 import EditPost from '@/components/editPost/editPost'
 import Image from "next/image"
 
@@ -72,9 +73,7 @@ export default function Profile() {
         }
         addComment(comments)
     }
-   
-   
-   
+ 
     const removeComment = (index) =>{
       const updatedComments = [...allComments]
       updatedComments.splice(index, 1)

@@ -16,6 +16,8 @@
     position: relative;
     width: 100%;
     border-bottom: 1px solid#eee;
+    overflow: hidden; 
+
 }
 .newsFeed_story span> img{
     width: 20px;
@@ -184,3 +186,6 @@
     width: 100%;
     height: auto;
 }
+/* .newsFeed_stories_play{
+    width: calc(33.33% - 10px)
+} */

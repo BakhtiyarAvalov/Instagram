@@ -11,6 +11,7 @@ import Image from "next/image"
 
 export default function EditPost({close, back, currentPost}) {
     const dispatch = useDispatch()
+    const id = currentPost.id
 
     const backModalPost = ()=>{
         back(true) 
@@ -38,10 +39,6 @@ export default function EditPost({close, back, currentPost}) {
     const editFile = (e)=>{
         handleFileChange(e)
     }
-    console.log("test1", selectedFile);
-    console.log("test", description);
-    const id = currentPost.id
-
 
     const handleSave = ()=> {
         const formData = new FormData();
@@ -50,9 +47,7 @@ export default function EditPost({close, back, currentPost}) {
         dispatch(editPost(id, formData))
         setDescription('')
         setSelectedFile(null)
-        console.log("test");
-      }
-
+    }
 
     const handleTextChange = (e) => {    
       const newText = e.target.value;

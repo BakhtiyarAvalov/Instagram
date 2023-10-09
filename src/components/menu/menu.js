@@ -59,6 +59,8 @@ export default function Menu() {
       setCreatePostShear(false)
       setText('')
       setSelectedFile(null)
+      console.log("formData", formData);
+
     }
     
 
