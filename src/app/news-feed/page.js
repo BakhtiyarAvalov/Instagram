@@ -210,7 +210,7 @@ export default function NewsFid() {
             </div>
         </div>
         {isModalOpen && <Stories closeModal={closeModal} posts={posts}/>}
-        {ModalLikeMark && <ModalLike posts={posts} closeModalLikeMark={closeModalLikeMark} onClick={setModalPostActive}/>}
+        {ModalLikeMark && <ModalLike posts={posts} closeModalLikeMark={closeModalLikeMark} onClick={setModalLikeMark}/>}
         {/* {modaPostlActive && <ModalPost onClick={setModalPostActive}/>} */}
     </main>
   )
