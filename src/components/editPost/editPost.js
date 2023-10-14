@@ -43,10 +43,12 @@ export default function EditPost({close, back, currentPost}) {
     const handleSave = ()=> {
         const formData = new FormData();
         formData.append('image', selectedFile); 
+        formData.append('id', id); 
         formData.append('description', description)
-        dispatch(editPost(id, formData))
+        dispatch(editPost(formData))
         setDescription('')
         setSelectedFile(null)
+        close(false)
     }
 
     const handleTextChange = (e) => {    

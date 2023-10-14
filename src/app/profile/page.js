@@ -92,6 +92,7 @@ export default function Profile() {
         
     // };
 
+    // console.log("posts", posts);
 
     return (
     <main className='profile-position ml'>
@@ -121,7 +122,7 @@ export default function Profile() {
                 <h3> <Image alt='' src={avatar}/>tagged</h3>
             </div>
             <div className='flex flex-jc-sb'>
-                <Posts posts={posts} onClick={openCurrentPost}/>
+                {posts && <Posts posts={posts} onClick={openCurrentPost}/>}
             </div>
         </div>
         {followersmodalActive && <FollowersModal setFollowersModalActive={setFollowersModalActive}/>}

@@ -26,7 +26,7 @@ export default function NewsFid() {
     const [selectedImage, setSelectedImage] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isTimer, setIsTimer] = useState()
-    const [startIndex, setStartIndex] = useState(0);
+    // const [startIndex, setStartIndex] = useState(0);
     const [ModalLikeMark, setModalLikeMark] = useState(false)
     const [modaPostlActive, setModalPostActive] = useState(false)
     
@@ -42,6 +42,7 @@ export default function NewsFid() {
         dispatch(getAllPosts())
     }
     useEffect((didMount), [])
+    
     useEffect(()=>{
         if(!isAuth)router.push("/register")
       },[isAuth])
@@ -81,9 +82,9 @@ export default function NewsFid() {
             }
     }, [comment]);
         
-    const toggleExpansion = () => {
-        setExpanded(!expanded);
-      };
+    // const toggleExpansion = () => {
+    //     setExpanded(!expanded);
+    //   };
 
 
     const addComment = (item) =>{
@@ -104,11 +105,11 @@ export default function NewsFid() {
         addComment(comments)
     }
    
-    const removeComment = (index) =>{
-      const updatedComments = [...allComments]
-      updatedComments.splice(index, 1)
-      setAllComments(updatedComments)
-    }
+    // const removeComment = (index) =>{
+    //   const updatedComments = [...allComments]
+    //   updatedComments.splice(index, 1)
+    //   setAllComments(updatedComments)
+    // }
 
     const openModalLikeMark = () => {  
         setModalLikeMark(true);
@@ -118,29 +119,29 @@ export default function NewsFid() {
     }
     
 
-    const step = 1;
+    // const step = 1;
 
-    const Next = () => {
-        console.log("next");
-    if (startIndex + step < posts.length) {
-            setStartIndex(startIndex + step);
-        }else{
-            setStartIndex(0)
-        }
-    }
+    // const Next = () => {
+    //     console.log("next");
+    // if (startIndex + step < posts.length) {
+    //         setStartIndex(startIndex + step);
+    //     }else{
+    //         setStartIndex(0)
+    //     }
+    // }
     
-    const Prev = () => {
-        console.log("prev");
-        if (startIndex - step >= 0) {
-            setStartIndex(startIndex - step);
-        }
-        else{
-            setStartIndex(posts.length - step);
-        }
-    };
+    // const Prev = () => {
+    //     console.log("prev");
+    //     if (startIndex - step >= 0) {
+    //         setStartIndex(startIndex - step);
+    //     }
+    //     else{
+    //         setStartIndex(posts.length - step);
+    //     }
+    // };
 
     
-    console.log( " posts", posts) ;
+    // console.log( " posts", posts) ;
   return (
     <main  className="">
         <Header/>
